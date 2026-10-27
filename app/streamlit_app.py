@@ -209,6 +209,21 @@ explanation of 13 % of unrelated lines. Selecting notes per line with an RSA-sty
 **Part B, open EEG data of Bergum et al. (2026).** AOI surprisal predicts the single-trial late frontal positivity
 (p < .001) beyond the confusing/clean label, and first-pass dwell time, but not N400 or P600 amplitudes; experience does not
 change the effect; and code models from 0.5B to 32B align about equally well (Qwen2.5-Coder-1.5B matches 32B).
+Gaze adds nothing to perplexity for telling confusing from clean snippets (AUC .72 for both). An RSA listener learned
+from EMIP reading times gives novices 26 notes and experienced readers 5 for the same program, and changes no unrelated lines.
+
+| Open question in the Saarland studies | Answer here |
+|---|---|
+| Q1 Individual differences | The surprisal effect does not depend on experience |
+| Q2 Single trials and eye tracking | Surprisal predicts single-trial EEG beyond the label, and dwell time |
+| Q3 Other EEG components | No N400 or P600 effect |
+| Q4 Model size | 1.5B matches 32B |
+| Q5 Assistance not built | Faithful RSA selection and this demo; a user study is still missing |
+| Q6 Hand-set RSA listeners | A listener learned from reading times stays faithful |
+
+**In short:** code-model predictability tracks *where* programmers struggle, but not *which* programmer struggles more.
+Personal differences have to be modelled, not assumed, and adaptation has to be built into how content is selected,
+not requested in a prompt.
 
 **Flagging rule used here.** A line is flagged when the reader’s dwell time is at least twice their own median line
 dwell, or when they came back to it at least twice as often as to their median line

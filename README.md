@@ -79,6 +79,8 @@ Two recent studies from Saarland University measured programmers' brain response
 | Q5 Detection at 64 %; assistance not built or evaluated | Studies 2, 5, demo | Gaze adds nothing to perplexity; faithful RSA selection and a demo exist; a user study is still missing |
 | Q6 RSA listeners set by hand | Study 6 | A listener learned from reading times stays faithful |
 
+**In short:** code-model predictability tracks *where* programmers struggle, but not *which* programmer struggles more. Personal differences have to be modelled, not assumed, and an assistant's adaptation has to be built into how it selects content, not requested in a prompt.
+
 **Replication first.** Our own perplexity code reproduces the published AOI perplexities of deepseek-coder-1.3b-base exactly (Pearson r = 1.00 over all 144 snippets), so new models can be compared with the published ones on the same footing.
 
 ### Study 3: does a bigger model track the brain better?
