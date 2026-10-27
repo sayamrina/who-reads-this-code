@@ -194,6 +194,17 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
 
   <h2>Part B: open questions from the Saarland EEG studies</h2>
   <p>Two recent studies from Saarland University measured programmers’ brain responses to confusing code. Bergum et al. (2026) recorded EEG and eye tracking while 24 programmers read 72 pairs of short Java snippets with and without an <i>atom of confusion</i>, and found a late frontal positivity 400–700 ms after the first fixation on the confusing part. Abdelsalam et al. (2026) showed that code-model perplexity peaks where this response is large. Both papers name open questions: individual differences, single trials and eye-tracking measures, other EEG components, model size, and assistance that was proposed but not built.</p>
+  <table>
+    <thead><tr><th>Open question in the Saarland studies</th><th>Tested in</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td>Q1 Individual differences; can prior knowledge enter the model?</td><td class="num">Findings 1, 4</td><td>The surprisal effect does not depend on experience</td></tr>
+      <tr><td>Q2 Snippet means only; eye tracking not tested inferentially</td><td class="num">Finding 4</td><td>Surprisal predicts single-trial EEG beyond the label, and dwell time</td></tr>
+      <tr><td>Q3 Only one EEG component</td><td class="num">Finding 4</td><td>No N400 or P600 effect</td></tr>
+      <tr><td>Q4 Does model size matter?</td><td class="num">Finding 5</td><td>No: 1.5B matches 32B</td></tr>
+      <tr><td>Q5 Detection at 64 %; assistance not built or evaluated</td><td class="num">Findings 3, 6</td><td>Gaze adds nothing to perplexity; faithful selection and a demo exist</td></tr>
+      <tr><td>Q6 RSA listeners set by hand</td><td class="num">Finding 7</td><td>A listener learned from reading times stays faithful</td></tr>
+    </tbody>
+  </table>
   <div class="source-box">
     <p><b>Where the data comes from.</b> The single-trial fixation-related potentials, first-pass dwell times and questionnaire of Bergum et al. (2026), published openly on <a href="https://doi.org/10.5281/zenodo.14229848" target="_blank" rel="noopener">Zenodo</a> (CC-BY 4.0), and the stimuli, areas of interest and AOI perplexities of six models from the replication package of Abdelsalam et al. (2026) on <a href="https://github.com/brains-on-code/llm-perplexity-AoC" target="_blank" rel="noopener">GitHub</a>.</p>
     <p><b>Method.</b> Our own perplexity code first reproduces their published values exactly (r = 1.00 over 144 snippets), then adds Qwen2.5-Coder 0.5B and 1.5B. Mean amplitudes are taken in three windows (Fz 400–800 ms, as in the original study; an N400 window at Cz, CPz and Pz, 300–500 ms; a P600 window at CPz, Pz, P3 and P4, 600–900 ms) and modelled with crossed random intercepts for programmers and snippet pairs. The hypotheses were added to the preregistration before these analyses.</p>

@@ -70,6 +70,15 @@ All notes cite their line; 100 % of the prompt-only notes referred to an existin
 
 Two recent studies from Saarland University measured programmers' brain responses to confusing code. Bergum et al. (2026) recorded EEG and eye tracking while 24 programmers read 72 pairs of Java snippets with and without an *atom of confusion*, and found a late frontal positivity about 400–700 ms after the first fixation on the confusing part. Abdelsalam et al. (2025) showed that the perplexity of code language models peaks where this response is large. Both papers list open questions: individual differences were not analysed, eye-tracking measures were not tested inferentially, only one EEG component was examined, the effect of model size is unknown, and detection and assistance were proposed but not built. Their data and code are public (Zenodo 10.5281/zenodo.14229848; github.com/brains-on-code), so Studies 3–6 address these questions directly. The hypotheses were added to the [preregistration](PREREGISTRATION.md) before these analyses were run.
 
+| Open question in Bergum et al. (2026) and Abdelsalam et al. (2026) | Where it is tested here | Answer |
+|---|---|---|
+| Q1 Individual differences; can prior knowledge enter the model? | Studies 1, 4 | The surprisal effect does not depend on experience, in EEG, dwell time or EMIP reading times |
+| Q2 Snippet means only; eye tracking not tested inferentially | Studies 1, 4 | Surprisal predicts single-trial EEG beyond the label, and dwell time; EMIP effect weaker |
+| Q3 Only one EEG component | Study 4 | No N400 or P600 effect; the response is specific |
+| Q4 Does model size matter? | Study 3 | No: 1.5B matches 32B |
+| Q5 Detection at 64 %; assistance not built or evaluated | Studies 2, 5, demo | Gaze adds nothing to perplexity; faithful RSA selection and a demo exist; a user study is still missing |
+| Q6 RSA listeners set by hand | Study 6 | A listener learned from reading times stays faithful |
+
 **Replication first.** Our own perplexity code reproduces the published AOI perplexities of deepseek-coder-1.3b-base exactly (Pearson r = 1.00 over all 144 snippets), so new models can be compared with the published ones on the same footing.
 
 ### Study 3: does a bigger model track the brain better?
