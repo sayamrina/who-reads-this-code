@@ -6,6 +6,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,8 +29,9 @@ def study1() -> None:
     ax.set_ylabel("Total reading time (ms)")
     ax.grid(axis="y", color=GRID)
     b = res["H1_total_time"]["coefficients"]
-    ax.set_title(f"Less predictable code tokens are read longer: +{b['ms_per_bit_at_mean']} ms per bit (p < .001)",
-                 fontsize=10, color=INK, loc="left")
+    pv = b["surprisal_z"]["p"]
+    ax.set_title(f"Less predictable code tokens are read longer: +{b['ms_per_bit_at_mean']} ms per bit "
+                 f"({'p < .001' if pv < .001 else f'p = {pv:.3f}'})", fontsize=10, color=INK, loc="left")
     ax.legend(frameon=False, fontsize=8.5)
     fig.tight_layout()
     fig.savefig(IMG / "study1_surprisal.png")
@@ -79,9 +81,69 @@ def study2() -> None:
     fig.savefig(IMG / "study2_faithfulness.png")
 
 
+def study3() -> None:
+    p = RESULTS / "aoc" / "study3_scaling.csv"
+    if not p.exists():
+        return
+    d = pd.read_csv(p)
+    fig, ax = plt.subplots(figsize=(6.4, 3.8), dpi=160)
+    qwen = d[d["family"] == "Qwen2.5"].sort_values("size_b")
+    other = d[d["family"] != "Qwen2.5"]
+    ax.plot(qwen["size_b"], qwen["rho_confusing"], marker="o", color=BLUE, lw=2, label="Qwen2.5-Coder (0.5B to 32B)")
+    ax.scatter(other["size_b"], other["rho_confusing"], color=MUTED, s=36, zorder=3, label="Other code models (published)")
+    for _, r in other.iterrows():
+        ax.annotate(r["model"].replace("-base", "").replace("deepseek-coder", "DeepSeek").replace("Artigenz-Coder-DS", "Artigenz"),
+                    (r["size_b"], r["rho_confusing"]), textcoords="offset points",
+                    xytext=(6, 4) if r["model"].startswith("deepseek-coder-6.7b") else (5, -10), fontsize=7, color=MUTED)
+    ax.set_xscale("log")
+    ax.set_xticks([0.5, 1, 3, 10, 30], ["0.5B", "1B", "3B", "10B", "30B"])
+    ax.set_xlabel("Model size (parameters, log scale)")
+    ax.set_ylabel("Spearman ρ with the human\nconfusion response (confusing snippets)")
+    ax.grid(axis="y", color=GRID)
+    ax.set_title("Bigger code models do not track the brain’s confusion response better", fontsize=10, color=INK, loc="left")
+    ax.legend(frameon=False, fontsize=8, loc="lower left")
+    fig.tight_layout()
+    fig.savefig(IMG / "study3_scaling.png")
+
+
+def study4() -> None:
+    p = RESULTS / "aoc" / "study4.json"
+    if not p.exists():
+        return
+    r = json.load(open(p))
+    labels = ["Late frontal positivity\n(Fz, 400–800 ms)", "N400 window\n(Cz, CPz, Pz)", "P600 window\n(CPz, Pz, P3, P4)",
+              "First-pass dwell\nin the AOI"]
+    keys = ["H7_lfp_experience", "H8_n400", "H8_p600", "H9_first_pass"]
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.6), dpi=160, gridspec_kw={"width_ratios": [3, 1]})
+    eeg = [(r[k]["coef"]["surprisal_z"]["b"], r[k]["coef"]["surprisal_z"]["se"], r[k]["coef"]["surprisal_z"]["p"]) for k in keys[:3]]
+    ax = axes[0]
+    for i, (b, se, pv) in enumerate(eeg):
+        ax.errorbar(i, b, yerr=1.96 * se, fmt="o", color=BLUE if pv < .05 else MUTED, capsize=4, lw=2)
+        ax.text(i + 0.08, b, f"p = {pv:.3f}" if pv >= .001 else "p < .001", fontsize=8, color=INK, va="center")
+    ax.axhline(0, color=MUTED, lw=1)
+    ax.set_xticks(range(3), labels[:3], fontsize=8)
+    ax.set_xlim(-0.5, 2.7)
+    ax.set_ylabel("µV per SD of AOI surprisal")
+    ax.grid(axis="y", color=GRID)
+    ax.set_title("Single-trial EEG (24 programmers)", fontsize=9.5, color=INK, loc="left")
+    b, se, pv = (r[keys[3]]["coef"]["surprisal_z"][k] for k in ("b", "se", "p"))
+    ax2 = axes[1]
+    ax2.errorbar(0, (np.exp(b) - 1) * 100, yerr=[[ (np.exp(b) - np.exp(b - 1.96 * se)) * 100], [(np.exp(b + 1.96 * se) - np.exp(b)) * 100]],
+                 fmt="o", color=BLUE, capsize=4, lw=2)
+    ax2.axhline(0, color=MUTED, lw=1)
+    ax2.set_xticks([0], [labels[3]], fontsize=8)
+    ax2.set_ylabel("% longer per SD")
+    ax2.grid(axis="y", color=GRID)
+    ax2.set_title("Eye tracking", fontsize=9.5, color=INK, loc="left")
+    fig.tight_layout()
+    fig.savefig(IMG / "study4_single_trial.png")
+
+
 if __name__ == "__main__":
     IMG.mkdir(parents=True, exist_ok=True)
     study1()
     study1b()
     study2()
+    study3()
+    study4()
     print("figures written to", IMG)

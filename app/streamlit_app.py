@@ -196,15 +196,19 @@ with st.expander("What the studies found"):
 **Data.** EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020): 216 programmers reading two Java programs.
 This analysis keeps 351 trials from 185 Java readers after preregistered exclusions.
 
-**Study 1.** Tokens that a code language model finds less predictable (higher surprisal) are read longer: about 4 ms per bit
-of total reading time (p < .001), after controlling for length, position and frequency. The effect did not differ by expertise,
-and surprisal did not predict skipping.
+**Study 1.** Tokens that a code language model finds less predictable (higher surprisal) are read longer: about 5 ms per bit
+of total reading time (p = .004), after controlling for length, position and frequency; the effect is not robust in by-token
+and per-program checks. It did not differ by expertise, and surprisal did not predict skipping.
 
 **Study 1b.** Reading strategies form two types: line by line, or jumping back and forth. The non-linear type is more common
 among more experienced readers (p = .03), in line with Busjahn et al. (2015).
 
 **Study 2.** When a developer profile is pasted into the prompt, flipping one construct to “known” also changed the
 explanation of 13 % of unrelated lines. Selecting notes per line with an RSA-style speaker changed no unrelated lines.
+
+**Part B, open EEG data of Bergum et al. (2026).** AOI surprisal predicts the single-trial late frontal positivity
+(p < .001) beyond the confusing/clean label, and first-pass dwell time, but not N400 or P600 amplitudes; experience does not
+change the effect; and code models from 0.5B to 32B align about equally well (Qwen2.5-Coder-1.5B matches 32B).
 
 **Flagging rule used here.** A line is flagged when the reader’s dwell time is at least twice their own median line
 dwell, or when they came back to it at least twice as often as to their median line

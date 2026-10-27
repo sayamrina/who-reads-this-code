@@ -1,0 +1,27 @@
+{
+ "n_snippets": 144,
+ "n_pairs": 72,
+ "perplexity": {
+  "auc": 0.722,
+  "accuracy": 0.625
+ },
+ "gaze": {
+  "auc": 0.564,
+  "accuracy": 0.549
+ },
+ "perplexity + gaze": {
+  "auc": 0.72,
+  "accuracy": 0.604
+ },
+ "paired_choice": {
+  "perplexity": 0.625,
+  "gaze": 0.569
+ },
+ "auc_gain_both_vs_perplexity": {
+  "mean": -0.002,
+  "ci95": [
+   -0.015,
+   0.011
+  ]
+ }
+}

@@ -98,7 +98,7 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
 <header class="hero">
   <div>
     <h1>Who reads this code?</h1>
-    <p>Programmers do not read code like a page of text, and no two read it alike. This project measures how they read it, with eye-tracking data from 185 programmers, and tests whether an AI explanation can adapt to one developer without changing what it should not.</p>
+    <p>Programmers do not read code like a page of text, and no two read it alike. This project measures how they read it, with eye-tracking data from 185 programmers and open EEG data from 24, and tests whether an AI explanation can adapt to one developer without changing what it should not.</p>
     <div class="author">
       <img src="img/amrina.jpg" alt="Photo of Amrina" width="52" height="52">
       <div><strong>Amrina</strong><div class="byline">M.Sc. Educational Technology, Saarland University. <a href="https://sayamrina.github.io/">Portfolio</a></div></div>
@@ -167,8 +167,8 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   </div>
 
   <h2>Finding 1: surprising code is read longer</h2>
-  <div class="finding"><strong>Tokens that a code language model finds less predictable are read about 4 ms longer per bit of surprisal.</strong>
-    Mixed-effects model on total reading time, controlling for token length, position and frequency: p &lt; .001. The effect holds in each program on its own.</div>
+  <div class="finding"><strong>Tokens that a code language model finds less predictable are read about 5 ms longer per bit of surprisal.</strong>
+    Mixed-effects model on total reading time with crossed random intercepts for readers and tokens, controlling for token length, position and frequency: p = .004. The effect is not robust in the checks: a by-token regression points the same way but is not significant (p = .16), and neither program alone reaches significance (p = .07, .10).</div>
   <figure class="chart"><img src="img/study1_surprisal.png" alt="Line chart: total reading time rises from about 350 ms to about 500 ms across surprisal quintiles, for both expertise groups" width="1024" height="608" loading="lazy">
     <figcaption>Mean total reading time by surprisal quintile (Qwen2.5-Coder-0.5B), split by self-rated expertise.</figcaption></figure>
   <div class="finding null"><strong>Two predictions did not hold.</strong> The effect was not weaker for experts (p = .48), and predictable tokens were not skipped more often (p = .11).</div>
@@ -192,8 +192,34 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   <figure class="chart"><img src="img/study2_faithfulness.png" alt="Bar chart comparing changed lines for the two systems" width="1024" height="576" loading="lazy">
     <figcaption>Share of lines whose explanation changed after one construct was flipped to “known”, over 14 flips in two programs.</figcaption></figure>
 
+  <h2>Part B: open questions from the Saarland EEG studies</h2>
+  <p>Two recent studies from Saarland University measured programmers’ brain responses to confusing code. Bergum et al. (2026) recorded EEG and eye tracking while 24 programmers read 72 pairs of short Java snippets with and without an <i>atom of confusion</i>, and found a late frontal positivity 400–700 ms after the first fixation on the confusing part. Abdelsalam et al. (2026) showed that code-model perplexity peaks where this response is large. Both papers name open questions: individual differences, single trials and eye-tracking measures, other EEG components, model size, and assistance that was proposed but not built.</p>
+  <div class="source-box">
+    <p><b>Where the data comes from.</b> The single-trial fixation-related potentials, first-pass dwell times and questionnaire of Bergum et al. (2026), published openly on <a href="https://doi.org/10.5281/zenodo.14229848" target="_blank" rel="noopener">Zenodo</a> (CC-BY 4.0), and the stimuli, areas of interest and AOI perplexities of six models from the replication package of Abdelsalam et al. (2026) on <a href="https://github.com/brains-on-code/llm-perplexity-AoC" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p><b>Method.</b> Our own perplexity code first reproduces their published values exactly (r = 1.00 over 144 snippets), then adds Qwen2.5-Coder 0.5B and 1.5B. Mean amplitudes are taken in three windows (Fz 400–800 ms, as in the original study; an N400 window at Cz, CPz and Pz, 300–500 ms; a P600 window at CPz, Pz, P3 and P4, 600–900 ms) and modelled with crossed random intercepts for programmers and snippet pairs. The hypotheses were added to the preregistration before these analyses.</p>
+  </div>
+
+  <h2>Finding 4: predictability explains the brain response trial by trial</h2>
+  <div class="finding"><strong>AOI surprisal predicts the single-trial late frontal positivity (+0.73 µV per SD, p &lt; .001), and still does when the confusing/clean label is in the model.</strong>
+    The label itself is then no longer significant (p = .14): graded predictability explains the response better than the binary category. Surprisal also predicts first-pass dwell time in the area of interest (16 % longer per SD, p &lt; .001), but not N400 or P600 amplitudes.</div>
+  <figure class="chart"><img src="img/study4_single_trial.png" alt="Effect of AOI surprisal on three EEG windows and on first-pass dwell time; only the late frontal positivity and dwell time differ from zero" width="1152" height="576" loading="lazy">
+    <figcaption>Effect of one standard deviation of AOI surprisal (Qwen2.5-Coder-32B) with 95 % intervals; 1,387 trials from 24 programmers.</figcaption></figure>
+  <div class="finding null"><strong>Experience does not change how strongly predictability matters.</strong> No surprisal × experience interaction for the EEG response (p = .97) or dwell time (p = .94), matching finding 1 on EMIP. Generic surprisal does not capture individual differences, which is the case for personalised models.</div>
+
+  <h2>Finding 5: bigger models do not track the brain better</h2>
+  <div class="finding"><strong>Across eight code models from 0.5 to 32 billion parameters, alignment with the EEG response does not grow with size.</strong>
+    Qwen2.5-Coder-1.5B matches the 32B model on snippet means (ρ = .47 for both) and fits single trials better; Yi-Coder-9B is the weakest (ρ = .30). This mirrors what is known for text reading (Oh and Schuler, 2023).</div>
+  <figure class="chart"><img src="img/study3_scaling.png" alt="Correlation with the EEG response by model size; the Qwen line rises from 0.5B to 1.5B and then stays flat up to 32B" width="1024" height="608" loading="lazy">
+    <figcaption>Spearman correlation between maximum AOI perplexity and the snippet-mean late frontal positivity on the 72 confusing snippets.</figcaption></figure>
+
+  <h2>Finding 6: gaze does not add to perplexity for detection</h2>
+  <div class="finding null"><strong>Perplexity alone separates confusing from clean snippets with an AUC of .72; adding mean first-pass dwell does not help (difference −0.002, 95 % CI −0.015 to 0.011).</strong> On short snippets, coarse dwell times carry little extra information.</div>
+
+  <h2>Finding 7: a listener learned from human data keeps explanations faithful</h2>
+  <p>Instead of hand-set probabilities, the RSA listener can be estimated from EMIP: novices spend the most extra time on <code>String[] args</code> and <code>main</code>, constructors, field declarations and class headers. With this learned listener a novice profile gets 26 notes for <code>Rectangle</code> and an experienced profile 5, and flipping one construct to known still changes no other line. Exploratory.</p>
+
   <h2>Limits</h2>
-  <p>Two short programs; self-rated expertise; random intercepts only. The fixation detector splits long fixations, so absolute durations are short. The explanation experiment tests where explanations change, not whether developers understand them better: nobody has read the generated notes yet. EMIP has no EEG, and the demo’s rule for flagging difficult lines is simple and unvalidated.</p>
+  <p>Two short programs in EMIP and short snippets with 24 programmers in the EEG data; self-rated expertise; random intercepts only. A first version of the EMIP models nested tokens within readers; the corrected, crossed models are reported and the correction is logged in the preregistration. The fixation detector splits long fixations, so absolute durations are short. The explanation experiment tests where explanations change, not whether developers understand them better: nobody has read the generated notes yet. The EEG analyses use the published, artifact-corrected epochs, and the demo’s rule for flagging difficult lines is simple and unvalidated.</p>
 
   <h2>Run and test it yourself</h2>
   <p>Everything runs on a laptop CPU. The EMIP raw data (515 MB) is downloaded from OSF; processed tables, figures and the demo data are in the repository.</p>
@@ -212,11 +238,14 @@ pytest</pre>
 
   <h2>References</h2>
   <div class="refs">
+    <p>Abdelsalam, Y., Peitek, N., Maurer, A.-M., Toneva, M. and Apel, S. (2026) ‘Are humans and LLMs confused by the same code? An empirical study on fixation-related potentials and LLM perplexity’, in <i>Proceedings of the 48th IEEE/ACM International Conference on Software Engineering (ICSE 2026)</i>.</p>
     <p>Al Madi, N., Guarnera, D.T., Sharif, B. and Maletic, J.I. (2021) ‘EMIP Toolkit: a Python library for customized post-processing of the eye movements in programming dataset’, in <i>ACM Symposium on Eye Tracking Research and Applications (ETRA ’21 Short Papers)</i>. New York: ACM.</p>
     <p>Bednarik, R. et al. (2020) ‘EMIP: the eye movements in programming dataset’, <i>Science of Computer Programming</i>, 198, 102520.</p>
+    <p>Bergum, A., Maurer, A.-M., Peitek, N., Bader, R., Mecklinger, A., Demberg, V., Siegmund, J. and Apel, S. (2026) ‘Fixation-related potentials reveal that confusing program code elicits a late frontal positivity’, <i>Scientific Reports</i>, 16, 16833.</p>
     <p>Busjahn, T. et al. (2015) ‘Eye movements in code reading: relaxing the linear order’, in <i>Proceedings of the 23rd IEEE International Conference on Program Comprehension (ICPC)</i>. Florence: IEEE, pp. 255–265.</p>
     <p>Demberg, V. and Keller, F. (2008) ‘Data from eye-tracking corpora as evidence for theories of syntactic processing complexity’, <i>Cognition</i>, 109(2), pp. 193–210.</p>
     <p>Goodman, N.D. and Frank, M.C. (2016) ‘Pragmatic language interpretation as probabilistic inference’, <i>Trends in Cognitive Sciences</i>, 20(11), pp. 818–829.</p>
+    <p>Oh, B.-D. and Schuler, W. (2023) ‘Why does surprisal from larger transformer-based language models provide a poorer fit to human reading times?’, <i>Transactions of the Association for Computational Linguistics</i>, 11, pp. 336–350.</p>
     <p>Salvucci, D.D. and Goldberg, J.H. (2000) ‘Identifying fixations and saccades in eye-tracking protocols’, in <i>Proceedings of the 2000 Symposium on Eye Tracking Research and Applications (ETRA)</i>. New York: ACM, pp. 71–78.</p>
   </div>
 </main>

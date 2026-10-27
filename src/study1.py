@@ -1,7 +1,7 @@
 """Study 1: does code-LLM surprisal predict reading times on code tokens, and does expertise change the effect?
 
-Linear mixed-effects models on log reading times with a random intercept per participant and a variance component
-for the token item (crossed random effects), as planned in PREREGISTRATION.md. Skipping is modelled with a logistic
+Linear mixed-effects models on log reading times with crossed random intercepts for participants and token items, as
+planned in PREREGISTRATION.md. A by-item regression on token means is reported as a check. Skipping is modelled with a logistic
 regression with participant-clustered standard errors.
 """
 import json
@@ -31,7 +31,10 @@ def prepare() -> pd.DataFrame:
 def mixed(df: pd.DataFrame, dv: str, formula_rhs: str) -> dict:
     data = df[df[dv] > 0].copy()
     data["y"] = np.log(data[dv])
-    model = smf.mixedlm(f"y ~ {formula_rhs}", data, groups=data["participant"], vc_formula={"item": "0 + C(item)"})
+    # Crossed random intercepts for participants and token items: one constant group, both as variance components
+    data["all"] = 1
+    model = smf.mixedlm(f"y ~ {formula_rhs}", data, groups=data["all"], re_formula="0",
+                        vc_formula={"participant": "0 + C(participant)", "item": "0 + C(item)"})
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         fit = model.fit(reml=True, method="lbfgs")
@@ -53,6 +56,18 @@ def skipping(df: pd.DataFrame) -> dict:
                                                         "p": float(fit.pvalues[k])} for k in keys}}
 
 
+def by_item(df: pd.DataFrame) -> dict:
+    """Check that does not depend on the random-effects structure: regress mean log total time per token on its predictors."""
+    d = df[df["total_ms"] > 0].copy()
+    d["y"] = np.log(d["total_ms"])
+    items = d.groupby("item").agg(y=("y", "mean"), surprisal_z=("surprisal_z", "first"), length_z=("length_z", "first"),
+                                  line_z=("line_z", "first"), pos_z=("pos_z", "first"), log_freq_z=("log_freq_z", "first"),
+                                  n=("y", "size")).reset_index()
+    r = smf.ols(f"y ~ surprisal_z + {CONTROLS}", items).fit()
+    return {"n_items": int(len(items)), "b": round(float(r.params["surprisal_z"]), 4), "se": round(float(r.bse["surprisal_z"]), 4),
+            "p": float(r.pvalues["surprisal_z"])}
+
+
 def binned(df: pd.DataFrame) -> pd.DataFrame:
     """Mean total reading time by surprisal bin and expertise group, for the figure."""
     d = df[df["total_ms"] > 0].copy()
@@ -71,6 +86,7 @@ def main() -> None:
         "H2_gaze_duration": mixed(df, "gaze_ms", f"surprisal_z * expertise_c + {CONTROLS}"),
         "H2_total_time": mixed(df, "total_ms", f"surprisal_z * expertise_c + {CONTROLS}"),
         "H3_skipping": skipping(df),
+        "check_H1_total_by_item": by_item(df),
         "robustness_H1_total_by_program": {prog: mixed(df[df["program"] == prog], "total_ms", f"surprisal_z + {CONTROLS}")
                                            for prog in ("rectangle", "vehicle")},
     }

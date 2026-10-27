@@ -45,3 +45,30 @@ All hypotheses are reported whether supported or not. Code, processed data and f
 4. **Robustness check added after the main results.** H1 (total reading time) refitted separately for each program.
 5. **Study 2 thresholds.** Two explanations of a line count as unchanged when their text similarity is at least 0.6 (difflib ratio); this threshold was set before running Study 2. Prompt-only run-to-run noise was 2.5 % in the first full run and 0 % in the second; the reported numbers are from the second run.
 6. **Study 2 candidate set made concrete.** Instead of several free-form candidate explanations, the language model writes one note per (line, construct) pair once, and the speaker chooses among subsets of these notes per line. This keeps content selection separate from wording, which is what the faithfulness test is meant to probe.
+7. **Random-effects structure corrected (27 October 2026).** The first Study 1 models were fitted with statsmodels `groups=participant` and the token item as a variance component, which nests items within participants instead of crossing them. All models were refitted with crossed random intercepts (one constant group, participants and items as variance components), and a by-item regression was added as a check. The corrected H1 result is weaker than first reported: p = .004 instead of p < .001, the by-item check is not significant (p = .16), and neither program alone reaches significance (p = .07, .10). All reported numbers are the corrected ones.
+
+---
+
+# Addendum (27 October 2026): extension to the open EEG data of Bergum et al. (2026)
+
+Written before any of the analyses below were run. At this point we had read the published papers (Bergum et al., 2026; Abdelsalam et al., 2025) and their published snippet-level results, and we had checked that our own perplexity code reproduces theirs for deepseek-coder-1.3b-base (Pearson r = 1.00 over 144 files). We had not yet loaded single-trial EEG, reading metrics or participant data.
+
+**Data.** Bergum et al. (2026), Zenodo 10.5281/zenodo.14229848, CC-BY 4.0: 24 programmers, 72 pairs of Java snippets with and without an atom of confusion, single-trial fixation-related potentials (32 channels, −0.3 to 1.0 s) time-locked to the first fixation on the human-annotated area of interest (AOI), first-pass dwell time in the AOI, and a questionnaire with years of programming experience. AOI perplexity per snippet from the replication package of Abdelsalam et al. (2025) for six models, plus our own runs of Qwen2.5-Coder 0.5B, 1.5B and 3B with the same method.
+
+Each study below targets a gap stated by these papers.
+
+**Study 3 – model size (their future work: is there a turning point where larger models align less?).** For each model, Spearman correlation between maximum AOI perplexity and the snippet-mean late frontal positivity (Fz, 400–800 ms) for confusing snippets, as in their RQ2. H5: alignment does not increase monotonically with size; within the Qwen2.5-Coder family (0.5B to 32B) the smaller models fit at least as well as the 32B model. Exploratory, no significance test of the trend with only four sizes.
+
+**Study 4 – single trials and individual differences (their limitation: individual differences not analysed, sample of intermediate programmers).** Linear mixed-effects models on single trials with random intercepts for participants and snippets: H6: AOI surprisal (log₂ of maximum AOI perplexity, Qwen2.5-Coder-32B) predicts single-trial late frontal positivity amplitude at Fz, 400–800 ms. H7: the effect is modulated by years of programming experience (direction open). H8 (their future work on other components): surprisal also predicts amplitude in an N400 window (300–500 ms, mean of Cz, CPz, Pz) and a P600 window (600–900 ms, mean of CPz, Pz, P3, P4); direction open, reported either way. H9 (eye-tracking measures not analysed inferentially): AOI surprisal predicts longer first-pass dwell time in the AOI (log seconds), also modulated by experience.
+
+**Study 5 – detecting confusing code beyond perplexity (their detection: 64 % of atoms).** Classify confusing vs clean snippets with leave-one-pair-out logistic regression from (a) AOI perplexity, (b) mean first-pass dwell across readers, (c) both. H10: combining gaze and perplexity gives a higher area under the ROC curve than perplexity alone.
+
+**Study 6 – a listener learned from human data (open point in RSA work: listener models set by hand).** On EMIP, estimate per programming construct how much longer lines with that construct are read by lower- versus higher-expertise readers (residual total reading time after the controls of Study 1), turn this into a probability that a construct is unknown, and use it as the RSA listener in place of hand-set values. Report how the selected notes differ for a novice and an expert profile, and re-run the faithfulness test. Exploratory.
+
+Exclusions follow the original authors' (artifact-rejected epochs are already removed in the published files). α = .05, two-sided.
+
+## Changes to the addendum
+
+1. **Study 3: Qwen2.5-Coder-3B not included.** Planned sizes were 0.5B, 1.5B and 3B; the 3B run in bfloat16 did not finish on the available CPU within the time available and was stopped. Study 3 therefore uses Qwen2.5-Coder 0.5B and 1.5B (ours) and the six published models, including Qwen2.5-Coder-32B.
+2. **Study 3: one single-trial fit failed.** For Artigenz-Coder-DS-6.7B the likelihood-ratio gain came out negative, which indicates a failed optimisation; the value is reported but not interpreted.
+3. **Study 4: experience main effects.** The planned tests were the surprisal effects and their interaction with experience; main effects of experience are reported as exploratory (24 participants).

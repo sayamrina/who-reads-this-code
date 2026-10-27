@@ -1,0 +1,224 @@
+{
+ "construct_costs": [
+  {
+   "construct": "array",
+   "novice_extra": 0.3261,
+   "n_novice": 73,
+   "n_other": 238
+  },
+  {
+   "construct": "main",
+   "novice_extra": 0.3261,
+   "n_novice": 73,
+   "n_other": 238
+  },
+  {
+   "construct": "constructor",
+   "novice_extra": 0.19,
+   "n_novice": 79,
+   "n_other": 265
+  },
+  {
+   "construct": "field",
+   "novice_extra": 0.1636,
+   "n_novice": 122,
+   "n_other": 387
+  },
+  {
+   "construct": "class",
+   "novice_extra": 0.1186,
+   "n_novice": 73,
+   "n_other": 229
+  },
+  {
+   "construct": "this_field",
+   "novice_extra": -0.0729,
+   "n_novice": 539,
+   "n_other": 1753
+  },
+  {
+   "construct": "return",
+   "novice_extra": -0.1265,
+   "n_novice": 149,
+   "n_other": 485
+  },
+  {
+   "construct": "method_def",
+   "novice_extra": -0.1443,
+   "n_novice": 154,
+   "n_other": 515
+  },
+  {
+   "construct": "method_call",
+   "novice_extra": -0.1446,
+   "n_novice": 76,
+   "n_other": 246
+  },
+  {
+   "construct": "print",
+   "novice_extra": -0.174,
+   "n_novice": 70,
+   "n_other": 233
+  },
+  {
+   "construct": "new",
+   "novice_extra": -0.2906,
+   "n_novice": 113,
+   "n_other": 372
+  },
+  {
+   "construct": "arithmetic",
+   "novice_extra": -0.3193,
+   "n_novice": 190,
+   "n_other": 633
+  },
+  {
+   "construct": "conditional",
+   "novice_extra": -0.5426,
+   "n_novice": 69,
+   "n_other": 217
+  }
+ ],
+ "programs": {
+  "Rectangle.java": {
+   "novice": {
+    "lines_explained": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16
+    ],
+    "notes": 26,
+    "constructs_explained": [
+     "arithmetic",
+     "array",
+     "class",
+     "constructor",
+     "field",
+     "main",
+     "method_call",
+     "method_def",
+     "new",
+     "print",
+     "return",
+     "this_field"
+    ]
+   },
+   "experienced": {
+    "lines_explained": [
+     9,
+     10,
+     11
+    ],
+    "notes": 5,
+    "constructs_explained": [
+     "return",
+     "this_field"
+    ]
+   },
+   "faithfulness": {
+    "targeted_change_rate": 0.423,
+    "untargeted_change_rate": 0.0
+   }
+  },
+  "Vehicle.java": {
+   "novice": {
+    "lines_explained": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10,
+     11,
+     12,
+     14,
+     16,
+     18,
+     19,
+     20
+    ],
+    "notes": 20,
+    "constructs_explained": [
+     "arithmetic",
+     "array",
+     "class",
+     "constructor",
+     "field",
+     "main",
+     "method_call",
+     "method_def",
+     "new",
+     "return",
+     "this_field"
+    ]
+   },
+   "experienced": {
+    "lines_explained": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     11,
+     12,
+     14,
+     16
+    ],
+    "notes": 9,
+    "constructs_explained": [
+     "constructor",
+     "this_field"
+    ]
+   },
+   "faithfulness": {
+    "targeted_change_rate": 0.545,
+    "untargeted_change_rate": 0.0
+   }
+  }
+ },
+ "p_known_novice": {
+  "array": 0.07,
+  "main": 0.07,
+  "constructor": 0.141,
+  "field": 0.16,
+  "class": 0.198,
+  "this_field": 0.424,
+  "return": 0.5,
+  "method_def": 0.525,
+  "method_call": 0.526,
+  "print": 0.567,
+  "new": 0.719,
+  "arithmetic": 0.75,
+  "conditional": 0.915
+ },
+ "p_known_experienced": {
+  "array": 0.908,
+  "main": 0.908,
+  "constructor": 0.912,
+  "field": 0.912,
+  "class": 0.914,
+  "this_field": 0.922,
+  "return": 0.925,
+  "method_def": 0.926,
+  "method_call": 0.926,
+  "print": 0.927,
+  "new": 0.933,
+  "arithmetic": 0.934,
+  "conditional": 0.941
+ }
+}
