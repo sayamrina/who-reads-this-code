@@ -58,6 +58,31 @@ table { width: 100%; border-collapse: collapse; margin: 12px 0 22px; font-size: 
 th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
 th { color: var(--muted); font-weight: 700; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.author { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.author img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--rule); }
+.author .byline { color: var(--muted); font-size: .92rem; }
+dl.methods { margin: 14px 0 22px; }
+dl.methods dt { font-weight: 700; margin-top: 14px; }
+dl.methods dd { margin: 2px 0 0; color: var(--ink); }
+.source-box { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 18px; margin: 14px 0 20px; }
+.source-box p { margin: 0 0 6px; }
+.source-box p:last-child { margin: 0; }
+figure.shot { margin: 18px -8px 10px; }
+figure.shot img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+figure.shot figcaption { color: var(--muted); font-size: .88rem; padding: 6px 4px 0; }
+ol.parts { padding-left: 0; list-style: none; counter-reset: part; margin: 16px 0 10px; }
+ol.parts li { counter-increment: part; position: relative; padding-left: 46px; margin: 0 0 16px; }
+ol.parts li::before { content: counter(part); position: absolute; left: 0; top: 1px; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--gaze); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .95rem; }
+ol.parts li b { display: block; }
+ol.tour { padding-left: 1.3em; margin: 10px 0 18px; }
+ol.tour li { margin: 0 0 10px; padding-left: 4px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0 8px; }
+.pair figure { margin: 0; }
+.pair img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 8px; }
+.pair figcaption { color: var(--muted); font-size: .86rem; padding-top: 6px; }
+pre { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-size: .82rem; line-height: 1.5; }
+@media (max-width: 560px) { .pair { grid-template-columns: 1fr; } figure.shot { margin: 16px 0 10px; } }
 .refs p { padding-left: 1.4em; text-indent: -1.4em; font-size: .92rem; color: var(--muted); margin-bottom: 8px; }
 footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--muted); font-size: .92rem; }
 @media (max-width: 900px) { header.hero { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } .hero p { max-width: 60ch; } }
@@ -74,9 +99,14 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   <div>
     <h1>Who reads this code?</h1>
     <p>Programmers do not read code like a page of text, and no two read it alike. This project measures how they read it, with eye-tracking data from 185 programmers, and tests whether an AI explanation can adapt to one developer without changing what it should not.</p>
+    <div class="author">
+      <img src="img/amrina.jpg" alt="Photo of Amrina" width="52" height="52">
+      <div><strong>Amrina</strong><div class="byline">M.Sc. Educational Technology, Saarland University. <a href="https://sayamrina.github.io/">Portfolio</a></div></div>
+    </div>
     <div class="links">
       <a class="btn primary" href="https://who-read-thiscode.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
-      <a class="btn" href="https://github.com/sayamrina/who-reads-this-code" target="_blank" rel="noopener">Code and data</a>
+      <a class="btn" href="#how-the-app-works">How the app works</a>
+      <a class="btn" href="https://github.com/sayamrina/who-reads-this-code" target="_blank" rel="noopener">Code on GitHub</a>
     </div>
   </div>
   <figure class="replay">
@@ -91,8 +121,50 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   <p>AI coding assistants explain, test and generate code in the same way for everyone. Yet experience changes where programmers look and in which order: experts read code less linearly than novices (Busjahn et al., 2015). In text reading, how long the eyes rest on a word tracks how predictable that word is (Demberg and Keller, 2008). If the same holds for code, and if readers fall into recognisable types, an assistant could learn who is reading and adapt. That raises a second question: when an assistant is told about a developer, does its explanation change only where it should?</p>
   <p>The hypotheses and analysis plan were <a href="https://github.com/sayamrina/who-reads-this-code/blob/main/PREREGISTRATION.md">written down before the gaze data were loaded</a>, and every result is reported whether it supports them or not.</p>
 
-  <h2>Data</h2>
-  <p>EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020), recorded 216 programmers reading two short Java, Python or Scala programs with a 250 Hz eye tracker. It ships the screen position of every code token, so gaze can be matched to tokens exactly. After preregistered exclusions, the analysis keeps 351 Java reading sessions from 185 programmers: 44,912 token observations.</p>
+  <h2 id="data-and-methods">Data and methods</h2>
+  <div class="source-box">
+    <p><b>Where the data comes from.</b> EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020), published openly on <a href="https://osf.io/53kts" target="_blank" rel="noopener">OSF</a> under a CC-BY 4.0 licence. 216 programmers read two short programs, <code>Rectangle</code> and <code>Vehicle</code>, in Java, Python or Scala, while an SMI RED250 eye tracker recorded their gaze 250 times per second; each then answered a comprehension question and a background questionnaire with self-rated expertise.</p>
+    <p><b>What this project uses.</b> The 207 Java readers. After the exclusions set out in the <a href="https://github.com/sayamrina/who-reads-this-code/blob/main/PREREGISTRATION.md">preregistration</a> (tracking loss above 30 %, fewer than 30 fixations, gaze mostly off the code), 351 reading sessions from 185 programmers remain: 44,912 observations of one person reading one code token.</p>
+  </div>
+  <dl class="methods">
+    <dt>From gaze samples to fixations</dt>
+    <dd>The gaze position is averaged over the valid eyes, and fixations are found with a dispersion threshold (I-DT; Salvucci and Goldberg, 2000): the eyes count as resting while they stay within 25 pixels for 80 to 1,200 ms.</dd>
+    <dt>From fixations to code tokens</dt>
+    <dd>EMIP ships a box for every line and every token of the code, in the same order as the source file (Al Madi et al., 2021). Each fixation is assigned to the box it falls in, which gives, for every token, its total reading time, first-pass gaze duration and whether it was skipped.</dd>
+    <dt>How predictable each token is</dt>
+    <dd>A small open code language model, Qwen2.5-Coder-0.5B, reads the program from the top and gives each token a surprisal, −log₂ p(token | preceding code), in bits.</dd>
+    <dt>Statistics</dt>
+    <dd>Linear mixed-effects models (statsmodels) relate surprisal to log reading time, with random intercepts for readers and tokens and controls for token length, line, position and frequency; skipping uses logistic regression with reader-clustered errors.</dd>
+    <dt>Reader types</dt>
+    <dd>For each session: how often a line change goes to the next line, how often it goes back, the regression rate, fixation duration and coverage. k-means clustering on these features (k chosen by silhouette) gives the types.</dd>
+    <dt>Adaptive explanations and their faithfulness</dt>
+    <dd>gpt-4o-mini writes one short note per line and programming construct, without knowing the reader. A speaker in the Rational Speech Acts framework (Goodman and Frank, 2016) then picks, line by line, the notes a developer with a given profile needs. As a comparison, the profile is pasted straight into the prompt. Flipping one construct to “known” shows which lines each system changes.</dd>
+  </dl>
+
+  <h2 id="how-the-app-works">How the app works</h2>
+  <p>The <a href="https://who-read-thiscode.streamlit.app/" target="_blank" rel="noopener">live demo</a> is like sitting next to a programmer while they read code and watching where their eyes go. It replays eight real EMIP sessions and shows what an assistant would explain to that person. It makes no model calls, so it runs instantly.</p>
+  <figure class="shot"><img src="img/app_annotated.png" alt="Screenshot of the demo with six numbered areas: reader choice, gaze replay on the code, time slider, assistant panel, developer profile and the data and method box" width="1366" height="900" loading="lazy">
+    <figcaption>The demo with reader 189. The numbers match the list below.</figcaption></figure>
+  <ol class="parts">
+    <li><b>Choose a reader.</b> Eight real sessions from EMIP. The label says who is reading: the participant number from the dataset, the program, the reader type from finding 2 (line by line, or jumping back and forth) and their self-rated expertise.</li>
+    <li><b>Watch the eyes on the code.</b> This is the screen the participant saw. Each magenta circle is one fixation, a moment when the eyes rested; the bigger the circle, the longer they stayed. Thin lines show where the eyes moved next. Yellow lines are lines that look effortful for this person: they looked at them at least twice as long as at their typical line, or kept coming back.</li>
+    <li><b>Move through time.</b> Drag the reading-time slider from zero to the end and the gaze builds up as it happened. This imitates an assistant that watches while someone reads: the longer they read, the more it can notice.</li>
+    <li><b>See what the assistant noticed.</b> For every yellow line, the panel says why it was flagged, for example “3.8 s here, 2.1× this reader’s typical line; came back 8 times”, and shows the notes the assistant would give, such as an explanation of the constructor or of <code>this.x1</code>.</li>
+    <li><b>Tell the assistant what this developer already knows.</b> The ticked constructs are known. Tick one more and its notes disappear, only on the lines that use it; every other note stays exactly as it was. This is the faithfulness property tested in finding 3.</li>
+    <li><b>Check where the data comes from.</b> The box under the title names the dataset (EMIP, with a link to the original on OSF) and the methods: how fixations are detected, when a line is flagged, and how the notes were written and selected. Below the replay, <i>What the studies found</i> summarises the three results.</li>
+  </ol>
+
+  <h3>Try it in three minutes</h3>
+  <ol class="tour">
+    <li>Open the <a href="https://who-read-thiscode.streamlit.app/" target="_blank" rel="noopener">live demo</a>. Reader 189 is selected; the panel flags lines 3, 4 and 13.</li>
+    <li>In the sidebar, tick <i>this.field (instance variable access)</i>. The note on line 4 disappears; the notes on lines 3 and 13 stay the same.</li>
+    <li>Drag the slider back to about 10 seconds to see what the assistant could already tell early on.</li>
+    <li>Switch to a reader of the type “reads line by line, rarely goes back” and compare how calmly the eyes move down the code.</li>
+  </ol>
+  <div class="pair">
+    <figure><img src="img/panel_before.png" alt="Assistant panel with notes on the constructor, this.x1 and object creation" width="375" height="660" loading="lazy"><figcaption>Before: <i>this.field</i> is unknown, so line 4 gets a note.</figcaption></figure>
+    <figure><img src="img/panel_after.png" alt="Assistant panel after ticking this.field: line 4 has no note, the other notes are unchanged" width="375" height="660" loading="lazy"><figcaption>After ticking <i>this.field</i>: line 4 stays quiet, lines 3 and 13 are unchanged.</figcaption></figure>
+  </div>
 
   <h2>Finding 1: surprising code is read longer</h2>
   <div class="finding"><strong>Tokens that a code language model finds less predictable are read about 4 ms longer per bit of surprisal.</strong>
@@ -123,12 +195,29 @@ footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--mu
   <h2>Limits</h2>
   <p>Two short programs; self-rated expertise; random intercepts only. The fixation detector splits long fixations, so absolute durations are short. The explanation experiment tests where explanations change, not whether developers understand them better: nobody has read the generated notes yet. EMIP has no EEG, and the demo’s rule for flagging difficult lines is simple and unvalidated.</p>
 
+  <h2>Run and test it yourself</h2>
+  <p>Everything runs on a laptop CPU. The EMIP raw data (515 MB) is downloaded from OSF; processed tables, figures and the demo data are in the repository.</p>
+<pre>git clone https://github.com/sayamrina/who-reads-this-code && cd who-reads-this-code
+python -m venv .venv && . .venv/bin/activate
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install transformers pandas statsmodels scikit-learn matplotlib streamlit openai pillow pytest
+python src/surprisal_run.py && python src/build_dataset.py
+python src/study1.py && python src/study1b.py
+OPENAI_API_KEY=... python src/study2.py
+streamlit run app/streamlit_app.py
+pytest</pre>
+
+  <h2>About</h2>
+  <p>This project grows out of my master’s thesis at Saarland University, an AI tutor that answers from course materials and shows its sources, and out of an earlier pilot on user models for language models, <a href="https://sayamrina.github.io/whose-inference/">Whose Inference?</a>. Hypotheses, analysis plan, construct rules and interpretation are my own; the full report with all numbers is in the <a href="https://github.com/sayamrina/who-reads-this-code#readme">README</a>.</p>
+
   <h2>References</h2>
   <div class="refs">
+    <p>Al Madi, N., Guarnera, D.T., Sharif, B. and Maletic, J.I. (2021) ‘EMIP Toolkit: a Python library for customized post-processing of the eye movements in programming dataset’, in <i>ACM Symposium on Eye Tracking Research and Applications (ETRA ’21 Short Papers)</i>. New York: ACM.</p>
     <p>Bednarik, R. et al. (2020) ‘EMIP: the eye movements in programming dataset’, <i>Science of Computer Programming</i>, 198, 102520.</p>
     <p>Busjahn, T. et al. (2015) ‘Eye movements in code reading: relaxing the linear order’, in <i>Proceedings of the 23rd IEEE International Conference on Program Comprehension (ICPC)</i>. Florence: IEEE, pp. 255–265.</p>
     <p>Demberg, V. and Keller, F. (2008) ‘Data from eye-tracking corpora as evidence for theories of syntactic processing complexity’, <i>Cognition</i>, 109(2), pp. 193–210.</p>
     <p>Goodman, N.D. and Frank, M.C. (2016) ‘Pragmatic language interpretation as probabilistic inference’, <i>Trends in Cognitive Sciences</i>, 20(11), pp. 818–829.</p>
+    <p>Salvucci, D.D. and Goldberg, J.H. (2000) ‘Identifying fixations and saccades in eye-tracking protocols’, in <i>Proceedings of the 2000 Symposium on Eye Tracking Research and Applications (ETRA)</i>. New York: ACM, pp. 71–78.</p>
   </div>
 </main>
 <footer>

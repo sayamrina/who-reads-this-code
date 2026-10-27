@@ -66,7 +66,7 @@ All notes cite their line; 100 % of the prompt-only notes referred to an existin
 
 ## Demo
 
-The [Streamlit app](https://who-read-thiscode.streamlit.app/) replays eight real EMIP sessions on the code image. A line is flagged when the reader dwells on it at least twice as long as on their median line or returns to it unusually often; for flagged lines, the assistant shows the notes the RSA-style speaker selects for the profile ticked in the sidebar, and says why the line was flagged. The demo makes no model calls.
+The [Streamlit app](https://who-read-thiscode.streamlit.app/) replays eight real EMIP sessions on the code image. A line is flagged when the reader dwells on it at least twice as long as on their median line or returns to it unusually often; for flagged lines, the assistant shows the notes the RSA-style speaker selects for the profile ticked in the sidebar, and says why the line was flagged. A box under the title names the data source (EMIP on OSF) and the methods. The demo makes no model calls; a step-by-step guide is on the [project page](https://sayamrina.github.io/who-reads-this-code/#how-the-app-works).
 
 ## Limitations
 

@@ -35,6 +35,11 @@ h1 { font-weight: 700; letter-spacing: -0.01em; color: #17222B; font-size: 2.1re
 .note { border-left: 4px solid #0F766E; background: #ffffff; padding: .55rem .8rem; margin: .45rem 0; border-radius: 0 6px 6px 0; }
 .note b { color: #0F766E; }
 .why { color: #3d4b57; font-size: .92rem; margin: .15rem 0 .1rem; }
+.source { background: #ffffff; border: 1px solid #d5dde3; border-radius: 8px; padding: .7rem .95rem; margin: 0 0 1.1rem;
+  font-size: .95rem; color: #2c3a45; max-width: 100%; }
+.source p { margin: 0 0 .35rem; }
+.source p:last-child { margin: 0; }
+.source b { color: #17222B; }
 .flagline { display: inline-block; background: #F2B705; color: #17222B; font-weight: 700; padding: 0 .4rem; border-radius: 3px; }
 .project-popup { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: 100%; margin: 0 auto 18px;
   padding: 8px 10px 8px 14px; background: #fff; color: #17222B; font-size: 14px; border: 1px solid #d5dde3;
@@ -143,6 +148,17 @@ st.title("Who reads this code?")
 st.markdown('<p class="lede">Replay how a real programmer’s eyes moved through a short Java program, and see which lines an '
             'assistant would explain to them, based on where they struggled and what they already know.</p>',
             unsafe_allow_html=True)
+st.markdown("""
+<div class="source" role="note" aria-label="Data and method">
+<p><b>Data.</b> Every session shown here is a real recording from EMIP, the Eye Movements in Programming dataset
+(Bednarik et al., 2020; 216 programmers, SMI RED250 eye tracker at 250 Hz, CC-BY 4.0,
+<a href="https://osf.io/53kts" target="_blank" rel="noopener">osf.io/53kts</a>). The code is the dataset’s own Java stimulus.</p>
+<p><b>Method.</b> Fixations are detected with a dispersion threshold (I-DT: 25 px, 80–1,200 ms) and mapped to the
+dataset’s token and line boxes. A line is flagged when this reader looks at it at least twice as long as at their median
+line, or returns to it unusually often. The notes were written once per line and construct by gpt-4o-mini, without any
+profile; for the profile on the left, an RSA-style speaker picks which notes to show. The demo itself makes no model calls.</p>
+</div>
+""", unsafe_allow_html=True)
 
 total = trial["fixations"][-1]["t"] + trial["fixations"][-1]["d"]
 until = st.slider("Reading time", 0.0, total / 1000, total / 1000, 0.5, format="%.1f s", key=f"t_{idx}") * 1000
@@ -175,7 +191,7 @@ with right:
                         'instead of repeating what the developer knows.</div>' if not unknown else
                         f'<div class="note">No note available for {", ".join(unknown)}.</div>', unsafe_allow_html=True)
 
-with st.expander("How this works and what the studies found"):
+with st.expander("What the studies found"):
     st.markdown("""
 **Data.** EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020): 216 programmers reading two Java programs.
 This analysis keeps 351 trials from 185 Java readers after preregistered exclusions.
