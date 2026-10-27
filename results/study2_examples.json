@@ -1,0 +1,165 @@
+{
+ "Rectangle.java": {
+  "rsa": {
+   "2": [
+    "field declaration for four integer variables representing rectangle coordinates."
+   ],
+   "3": [
+    "constructor initializes a new Rectangle object with specified coordinates."
+   ],
+   "4": [
+    "this.x1 refers to the instance variable x1 of the current object."
+   ],
+   "5": [
+    "this.y1 refers to the instance variable y1 of the current object."
+   ],
+   "6": [
+    "this.x2 refers to the instance variable x2 of the current object."
+   ],
+   "7": [
+    "this.y2 refers to the instance variable y2 of the current object."
+   ],
+   "9": [
+    "method definition for width, returning the rectangle's width.",
+    "this.x2 accesses the instance variable x2."
+   ],
+   "10": [
+    "method definition for height, returning the rectangle's height.",
+    "this.y2 accesses the instance variable y2."
+   ],
+   "11": [
+    "method definition for area, returning the rectangle's area.",
+    "this.width() calls the width method of the current object.",
+    "method call to height() retrieves the height of the rectangle."
+   ],
+   "12": [
+    "static main method serves as the entry point for the program.",
+    "array type indicates args is an array of Strings."
+   ],
+   "13": [
+    "object creation with new instantiates a Rectangle object rect1."
+   ],
+   "15": [
+    "object creation with new instantiates a Rectangle object rect2."
+   ]
+  },
+  "prompt": {
+   "2": [
+    "Fields x1, y1, x2, y2 are declared to store rectangle coordinates."
+   ],
+   "3": [
+    "Constructor initializes the rectangle's coordinates using parameters."
+   ],
+   "4": [
+    "this.x1 refers to the instance variable x1, distinguishing it from the parameter."
+   ],
+   "9": [
+    "Method width calculates the rectangle's width using instance variables."
+   ],
+   "10": [
+    "Method height calculates the rectangle's height using instance variables."
+   ],
+   "11": [
+    "Method area calculates the rectangle's area using width and height methods."
+   ],
+   "12": [
+    "Static main method is the entry point of the program."
+   ],
+   "13": [
+    "Creates a new Rectangle object rect1 using the constructor."
+   ],
+   "14": [
+    "Calls area method on rect1 to print its area."
+   ],
+   "15": [
+    "Creates another Rectangle object rect2 using the constructor."
+   ],
+   "16": [
+    "Calls area method on rect2 to print its area."
+   ]
+  }
+ },
+ "Vehicle.java": {
+  "rsa": {
+   "2": [
+    "field declaration defines instance variables for the class."
+   ],
+   "3": [
+    "field declaration defines additional instance variables for the class."
+   ],
+   "4": [
+    "constructor initializes new objects with specified parameters."
+   ],
+   "5": [
+    "this.field accesses the instance variable 'producer'."
+   ],
+   "6": [
+    "this.field accesses the instance variable 'type'."
+   ],
+   "7": [
+    "this.field accesses the instance variable 'topSpeed'."
+   ],
+   "8": [
+    "this.field accesses the instance variable 'currentSpeed'."
+   ],
+   "10": [
+    "method definition declares a function that returns an integer."
+   ],
+   "11": [
+    "this.field accesses the instance variable 'currentSpeed'.",
+    "if / else structure controls flow based on a condition."
+   ],
+   "12": [
+    "this.field accesses the instance variable 'currentSpeed'."
+   ],
+   "13": [
+    "else branch executes if the if condition is false."
+   ],
+   "14": [
+    "this.field accesses the instance variable 'currentSpeed'."
+   ],
+   "16": [
+    "this.field accesses the instance variable 'currentSpeed'."
+   ],
+   "18": [
+    "static main method serves as the entry point for execution.",
+    "array type defines a parameter that can hold multiple strings."
+   ],
+   "19": [
+    "object creation with new allocates memory for a Vehicle instance."
+   ],
+   "20": [
+    "method call invokes the accelerate method on the Vehicle object."
+   ]
+  },
+  "prompt": {
+   "2": [
+    "Declares fields 'producer' and 'type' as String types."
+   ],
+   "3": [
+    "Declares fields 'topSpeed' and 'currentSpeed' as int types."
+   ],
+   "4": [
+    "Constructor 'Vehicle' initializes new objects with parameters."
+   ],
+   "5": [
+    "'this.producer' accesses the instance variable 'producer'."
+   ],
+   "10": [
+    "Defines method 'accelerate' that returns an int."
+   ],
+   "11": [
+    "Checks if new speed exceeds 'topSpeed' using 'if' statement."
+   ],
+   "18": [
+    "Defines the static main method, entry point of the program."
+   ],
+   "19": [
+    "Creates a new 'Vehicle' object using 'new' keyword."
+   ],
+   "20": [
+    "Calls the 'accelerate' method on the 'Vehicle' object 'v'."
+   ]
+  }
+ }
+}

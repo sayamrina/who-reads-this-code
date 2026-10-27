@@ -1,0 +1,547 @@
+{
+ "settings": {
+  "model": "gpt-4o-mini",
+  "alpha": 4.0,
+  "cost_per_word": 0.01,
+  "p_understood": 0.95,
+  "p_missed": 0.15,
+  "similarity_threshold": 0.6,
+  "baseline_known": [
+   "arithmetic",
+   "class",
+   "print",
+   "return"
+  ]
+ },
+ "programs": {
+  "Rectangle.java": {
+   "lines": 18,
+   "constructs": {
+    "1": [
+     "class"
+    ],
+    "2": [
+     "field"
+    ],
+    "3": [
+     "constructor"
+    ],
+    "4": [
+     "this_field"
+    ],
+    "5": [
+     "this_field"
+    ],
+    "6": [
+     "this_field"
+    ],
+    "7": [
+     "this_field"
+    ],
+    "8": [],
+    "9": [
+     "method_def",
+     "this_field",
+     "return",
+     "arithmetic"
+    ],
+    "10": [
+     "method_def",
+     "this_field",
+     "return",
+     "arithmetic"
+    ],
+    "11": [
+     "method_def",
+     "this_field",
+     "return",
+     "method_call",
+     "arithmetic"
+    ],
+    "12": [
+     "main",
+     "array"
+    ],
+    "13": [
+     "new"
+    ],
+    "14": [
+     "print"
+    ],
+    "15": [
+     "new"
+    ],
+    "16": [
+     "print"
+    ],
+    "17": [],
+    "18": []
+   },
+   "pool_notes": 26,
+   "rsa_lines_explained": 12,
+   "prompt_lines_explained": 11,
+   "grounded_prompt": 1.0,
+   "flips": [
+    {
+     "construct": "array",
+     "targeted_lines": [
+      12
+     ],
+     "rsa": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": [
+       2,
+       3,
+       9,
+       10,
+       11
+      ]
+     }
+    },
+    {
+     "construct": "constructor",
+     "targeted_lines": [
+      3
+     ],
+     "rsa": {
+      "changed_targeted": [
+       3
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       3
+      ],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "field",
+     "targeted_lines": [
+      2
+     ],
+     "rsa": {
+      "changed_targeted": [
+       2
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       2
+      ],
+      "changed_untargeted": [
+       3,
+       9,
+       10,
+       11
+      ]
+     }
+    },
+    {
+     "construct": "main",
+     "targeted_lines": [
+      12
+     ],
+     "rsa": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       12
+      ],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "method_call",
+     "targeted_lines": [
+      11
+     ],
+     "rsa": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       11
+      ],
+      "changed_untargeted": [
+       9,
+       10
+      ]
+     }
+    },
+    {
+     "construct": "method_def",
+     "targeted_lines": [
+      9,
+      10,
+      11
+     ],
+     "rsa": {
+      "changed_targeted": [
+       9,
+       10
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       9,
+       10,
+       11
+      ],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "new",
+     "targeted_lines": [
+      13,
+      15
+     ],
+     "rsa": {
+      "changed_targeted": [
+       13,
+       15
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "this_field",
+     "targeted_lines": [
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+     ],
+     "rsa": {
+      "changed_targeted": [
+       4,
+       5,
+       6,
+       7
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       4
+      ],
+      "changed_untargeted": []
+     }
+    }
+   ]
+  },
+  "Vehicle.java": {
+   "lines": 22,
+   "constructs": {
+    "1": [
+     "class"
+    ],
+    "2": [
+     "field"
+    ],
+    "3": [
+     "field"
+    ],
+    "4": [
+     "constructor"
+    ],
+    "5": [
+     "this_field"
+    ],
+    "6": [
+     "this_field"
+    ],
+    "7": [
+     "this_field"
+    ],
+    "8": [
+     "this_field"
+    ],
+    "9": [],
+    "10": [
+     "method_def"
+    ],
+    "11": [
+     "this_field",
+     "conditional",
+     "arithmetic"
+    ],
+    "12": [
+     "this_field"
+    ],
+    "13": [
+     "conditional"
+    ],
+    "14": [
+     "this_field",
+     "arithmetic"
+    ],
+    "15": [],
+    "16": [
+     "this_field",
+     "return"
+    ],
+    "17": [],
+    "18": [
+     "main",
+     "array"
+    ],
+    "19": [
+     "new"
+    ],
+    "20": [
+     "method_call"
+    ],
+    "21": [],
+    "22": []
+   },
+   "pool_notes": 22,
+   "rsa_lines_explained": 16,
+   "prompt_lines_explained": 9,
+   "grounded_prompt": 1.0,
+   "flips": [
+    {
+     "construct": "array",
+     "targeted_lines": [
+      18
+     ],
+     "rsa": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": [
+       2,
+       3,
+       5,
+       6,
+       7,
+       8,
+       11,
+       12,
+       14,
+       16
+      ]
+     }
+    },
+    {
+     "construct": "conditional",
+     "targeted_lines": [
+      11,
+      13
+     ],
+     "rsa": {
+      "changed_targeted": [
+       13
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": [
+       5,
+       6,
+       7,
+       8,
+       10,
+       12,
+       14,
+       16
+      ]
+     }
+    },
+    {
+     "construct": "constructor",
+     "targeted_lines": [
+      4
+     ],
+     "rsa": {
+      "changed_targeted": [
+       4
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "field",
+     "targeted_lines": [
+      2,
+      3
+     ],
+     "rsa": {
+      "changed_targeted": [
+       2,
+       3
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       2,
+       3
+      ],
+      "changed_untargeted": [
+       4,
+       10,
+       11
+      ]
+     }
+    },
+    {
+     "construct": "main",
+     "targeted_lines": [
+      18
+     ],
+     "rsa": {
+      "changed_targeted": [],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       18
+      ],
+      "changed_untargeted": []
+     }
+    },
+    {
+     "construct": "method_call",
+     "targeted_lines": [
+      20
+     ],
+     "rsa": {
+      "changed_targeted": [
+       20
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       20
+      ],
+      "changed_untargeted": [
+       10,
+       11,
+       21
+      ]
+     }
+    },
+    {
+     "construct": "method_def",
+     "targeted_lines": [
+      10
+     ],
+     "rsa": {
+      "changed_targeted": [
+       10
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       10
+      ],
+      "changed_untargeted": [
+       11
+      ]
+     }
+    },
+    {
+     "construct": "new",
+     "targeted_lines": [
+      19
+     ],
+     "rsa": {
+      "changed_targeted": [
+       19
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [],
+      "changed_untargeted": [
+       5
+      ]
+     }
+    },
+    {
+     "construct": "this_field",
+     "targeted_lines": [
+      5,
+      6,
+      7,
+      8,
+      11,
+      12,
+      14,
+      16
+     ],
+     "rsa": {
+      "changed_targeted": [
+       5,
+       6,
+       7,
+       8,
+       12,
+       14,
+       16
+      ],
+      "changed_untargeted": []
+     },
+     "prompt": {
+      "changed_targeted": [
+       5
+      ],
+      "changed_untargeted": [
+       2,
+       3,
+       10,
+       19
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "summary": {
+  "prompt": {
+   "targeted_change_rate": 0.4,
+   "untargeted_change_rate": 0.134,
+   "targeted": 35,
+   "targeted_changed": 14,
+   "untargeted": 307,
+   "untargeted_changed": 41
+  },
+  "rsa": {
+   "targeted_change_rate": 0.686,
+   "untargeted_change_rate": 0.0,
+   "targeted": 35,
+   "targeted_changed": 24,
+   "untargeted": 307,
+   "untargeted_changed": 0
+  },
+  "prompt_noise_change_rate": 0.0
+ }
+}

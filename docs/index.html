@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Reads This Code?</title>
+<meta name="description" content="Eye-tracking study of how programmers read code, and a test of whether AI explanations adapt to a developer faithfully.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F3F6F8; --surface: #ffffff; --ink: #17222B; --muted: #4a5864; --rule: #d5dde3;
+  --gaze: #C2185B; --flag: #F2B705; --help: #0F766E;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #10171d; --surface: #18222a; --ink: #e8eef2; --muted: #a9b6c0; --rule: #2c3a45;
+    --gaze: #ff5c9a; --flag: #f5c534; --help: #3cc4b3; }
+}
+:root[data-theme="dark"] { --bg: #10171d; --surface: #18222a; --ink: #e8eef2; --muted: #a9b6c0; --rule: #2c3a45;
+  --gaze: #ff5c9a; --flag: #f5c534; --help: #3cc4b3; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 'Atkinson Hyperlegible', system-ui, sans-serif; }
+a { color: var(--help); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--gaze); outline-offset: 3px; }
+code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .86em; }
+.project-popup { display: flex; align-items: center; gap: 12px; width: fit-content; max-width: calc(100% - 32px); margin: 16px auto 0;
+  padding: 8px 10px 8px 14px; background: var(--surface); color: var(--ink); font-size: 15px; border: 1px solid var(--rule);
+  border-left: 4px solid var(--gaze); border-radius: 10px; }
+.project-popup a { padding: 6px 12px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; border-radius: 7px; white-space: nowrap; }
+@media (max-width: 560px) { .project-popup { flex-wrap: wrap; } }
+
+header.hero { max-width: 1120px; margin: 0 auto; padding: 40px 16px 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 44px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); line-height: 1.02; margin: 0 0 18px; letter-spacing: -0.02em; }
+.hero p { margin: 0 0 14px; max-width: 34ch; color: var(--muted); font-size: 1.08rem; }
+.hero .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; border: 2px solid var(--ink); color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--bg); }
+figure.replay { margin: 0; background: #fff; border-radius: 12px; border: 1px solid var(--rule); padding: 12px; position: relative; }
+figure.replay canvas { display: block; width: 100%; height: auto; border-radius: 6px; }
+figure.replay figcaption { display: flex; justify-content: space-between; gap: 12px; align-items: center; color: #4a5864; font-size: .9rem; padding: 10px 4px 2px; }
+figure.replay button { font: inherit; font-weight: 700; color: #17222B; background: #F3F6F8; border: 1px solid #d5dde3; border-radius: 7px; padding: 5px 12px; cursor: pointer; }
+.clock { font-family: "JetBrains Mono", monospace; color: #C2185B; font-weight: 600; white-space: nowrap; }
+
+main { max-width: 760px; margin: 0 auto; padding: 8px 16px 64px; }
+main h2 { font-size: 1.7rem; line-height: 1.2; margin: 56px 0 10px; letter-spacing: -0.01em; }
+main h3 { font-size: 1.15rem; margin: 28px 0 6px; }
+main p { margin: 0 0 14px; }
+.finding { border-left: 5px solid var(--help); padding: 4px 0 4px 18px; margin: 18px 0 22px; }
+.finding strong { display: block; font-size: 1.22rem; line-height: 1.35; }
+.finding.null { border-color: var(--rule); }
+figure.chart { margin: 18px -8px 26px; background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 10px; }
+figure.chart img { width: 100%; height: auto; display: block; }
+figure.chart figcaption { color: #4a5864; font-size: .88rem; padding: 6px 4px 0; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 22px; font-size: .95rem; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { color: var(--muted); font-weight: 700; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.refs p { padding-left: 1.4em; text-indent: -1.4em; font-size: .92rem; color: var(--muted); margin-bottom: 8px; }
+footer { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; color: var(--muted); font-size: .92rem; }
+@media (max-width: 900px) { header.hero { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } .hero p { max-width: 60ch; } }
+@media (max-width: 560px) { body { font-size: 17px; } figure.chart { margin: 16px 0 22px; } th, td { padding: 8px 4px; } }
+</style>
+</head>
+<body>
+<aside class="project-popup" aria-label="Portfolio project">
+  <span>This website was developed by Amrina as part of a portfolio.</span>
+  <a href="https://sayamrina.github.io/" target="_blank" rel="noopener">View the portfolio</a>
+</aside>
+
+<header class="hero">
+  <div>
+    <h1>Who reads this code?</h1>
+    <p>Programmers do not read code like a page of text, and no two read it alike. This project measures how they read it, with eye-tracking data from 185 programmers, and tests whether an AI explanation can adapt to one developer without changing what it should not.</p>
+    <div class="links">
+      <a class="btn primary" href="https://who-reads-this-code.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a>
+      <a class="btn" href="https://github.com/sayamrina/who-reads-this-code" target="_blank" rel="noopener">Code and data</a>
+    </div>
+  </div>
+  <figure class="replay">
+    <canvas id="replay" width="886" height="734" role="img" aria-label="Replay of a real programmer's fixations on a Java program, drawn as circles that grow with fixation duration"></canvas>
+    <figcaption><span>Reader 189 from the EMIP dataset reading <code>Rectangle.java</code>: each circle is one fixation, sized by how long the eyes rested.</span>
+      <span class="clock" id="clock" aria-live="off">0.0 s</span><button type="button" id="again">Replay</button></figcaption>
+  </figure>
+</header>
+
+<main>
+  <h2>The question</h2>
+  <p>AI coding assistants explain, test and generate code in the same way for everyone. Yet experience changes where programmers look and in which order: experts read code less linearly than novices (Busjahn et al., 2015). In text reading, how long the eyes rest on a word tracks how predictable that word is (Demberg and Keller, 2008). If the same holds for code, and if readers fall into recognisable types, an assistant could learn who is reading and adapt. That raises a second question: when an assistant is told about a developer, does its explanation change only where it should?</p>
+  <p>The hypotheses and analysis plan were <a href="https://github.com/sayamrina/who-reads-this-code/blob/main/PREREGISTRATION.md">written down before the gaze data were loaded</a>, and every result is reported whether it supports them or not.</p>
+
+  <h2>Data</h2>
+  <p>EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020), recorded 216 programmers reading two short Java, Python or Scala programs with a 250 Hz eye tracker. It ships the screen position of every code token, so gaze can be matched to tokens exactly. After preregistered exclusions, the analysis keeps 351 Java reading sessions from 185 programmers: 44,912 token observations.</p>
+
+  <h2>Finding 1: surprising code is read longer</h2>
+  <div class="finding"><strong>Tokens that a code language model finds less predictable are read about 4 ms longer per bit of surprisal.</strong>
+    Mixed-effects model on total reading time, controlling for token length, position and frequency: p &lt; .001. The effect holds in each program on its own.</div>
+  <figure class="chart"><img src="img/study1_surprisal.png" alt="Line chart: total reading time rises from about 350 ms to about 500 ms across surprisal quintiles, for both expertise groups" width="1024" height="608" loading="lazy">
+    <figcaption>Mean total reading time by surprisal quintile (Qwen2.5-Coder-0.5B), split by self-rated expertise.</figcaption></figure>
+  <div class="finding null"><strong>Two predictions did not hold.</strong> The effect was not weaker for experts (p = .48), and predictable tokens were not skipped more often (p = .11).</div>
+
+  <h2>Finding 2: two ways of reading code</h2>
+  <div class="finding"><strong>Readers split into a linear type and a non-linear type, and the non-linear type is more common among experienced programmers.</strong>
+    Kruskal–Wallis p = .03; the types did not differ in comprehension accuracy. Exploratory.</div>
+  <figure class="chart"><img src="img/study1b_types.png" alt="Scatter plot of reading sessions: one cluster moves to the next line more often, the other returns to earlier lines more often" width="1024" height="704" loading="lazy">
+    <figcaption>Each point is one reading session, coloured by type; the description of each type comes from its most distinctive features.</figcaption></figure>
+
+  <h2>Finding 3: telling a model about a developer changes more than it should</h2>
+  <p>A developer profile marks constructs such as constructors, <code>this.</code> fields or <code>new</code> as known or unknown. Flipping one construct to “known” should change only the lines that use it. Two systems were compared with the same language model:</p>
+  <table>
+    <thead><tr><th>System</th><th>Lines using the construct that changed</th><th>Other lines that changed</th></tr></thead>
+    <tbody>
+      <tr><td>Profile pasted into the prompt</td><td class="num">40 %</td><td class="num"><strong>13 %</strong></td></tr>
+      <tr><td>Notes written once, then selected per line by an RSA-style speaker</td><td class="num">69 %</td><td class="num"><strong>0 %</strong></td></tr>
+    </tbody>
+  </table>
+  <p>Rerunning the prompt-only system with an unchanged profile changed at most 2.5 % of lines, so the 13 % is leakage, not noise. Separating what to explain, chosen from the profile with a literal listener in the Rational Speech Acts framework (Goodman and Frank, 2016), from how to say it keeps the adaptation where it belongs.</p>
+  <figure class="chart"><img src="img/study2_faithfulness.png" alt="Bar chart comparing changed lines for the two systems" width="1024" height="576" loading="lazy">
+    <figcaption>Share of lines whose explanation changed after one construct was flipped to “known”, over 14 flips in two programs.</figcaption></figure>
+
+  <h2>Limits</h2>
+  <p>Two short programs; self-rated expertise; random intercepts only. The fixation detector splits long fixations, so absolute durations are short. The explanation experiment tests where explanations change, not whether developers understand them better: nobody has read the generated notes yet. EMIP has no EEG, and the demo’s rule for flagging difficult lines is simple and unvalidated.</p>
+
+  <h2>References</h2>
+  <div class="refs">
+    <p>Bednarik, R. et al. (2020) ‘EMIP: the eye movements in programming dataset’, <i>Science of Computer Programming</i>, 198, 102520.</p>
+    <p>Busjahn, T. et al. (2015) ‘Eye movements in code reading: relaxing the linear order’, in <i>Proceedings of the 23rd IEEE International Conference on Program Comprehension (ICPC)</i>. Florence: IEEE, pp. 255–265.</p>
+    <p>Demberg, V. and Keller, F. (2008) ‘Data from eye-tracking corpora as evidence for theories of syntactic processing complexity’, <i>Cognition</i>, 109(2), pp. 193–210.</p>
+    <p>Goodman, N.D. and Frank, M.C. (2016) ‘Pragmatic language interpretation as probabilistic inference’, <i>Trends in Cognitive Sciences</i>, 20(11), pp. 818–829.</p>
+  </div>
+</main>
+<footer>
+  <p>Gaze data and code image: EMIP, CC-BY 4.0. This website was built by Amrina, with AI as a supporting tool for coding.</p>
+</footer>
+
+<script src="assets/replay.js"></script>
+<script>
+(function () {
+  const data = window.REPLAY, canvas = document.getElementById('replay'), ctx = canvas.getContext('2d');
+  const clock = document.getElementById('clock'), img = new Image();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const end = data.fix[data.fix.length - 1][0] + data.fix[data.fix.length - 1][1];
+  const SPEED = 4; // replay at four times real speed
+  let start = null, raf = null;
+  function draw(ms) {
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const shown = data.fix.filter(f => f[0] <= ms);
+    ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(194,24,91,0.35)';
+    ctx.beginPath();
+    shown.forEach((f, i) => i ? ctx.lineTo(f[2], f[3]) : ctx.moveTo(f[2], f[3]));
+    ctx.stroke();
+    shown.forEach((f, i) => {
+      const r = Math.max(4, Math.sqrt(f[1]) * 0.9), last = i === shown.length - 1;
+      ctx.beginPath(); ctx.arc(f[2], f[3], r, 0, Math.PI * 2);
+      ctx.fillStyle = last ? 'rgba(194,24,91,0.55)' : 'rgba(194,24,91,0.18)'; ctx.fill();
+      ctx.lineWidth = last ? 2.5 : 1.2; ctx.strokeStyle = 'rgba(194,24,91,0.8)'; ctx.stroke();
+    });
+    clock.textContent = (Math.min(ms, end) / 1000).toFixed(1) + ' s';
+  }
+  function tick(ts) {
+    if (start === null) start = ts;
+    const ms = (ts - start) * SPEED;
+    draw(ms);
+    if (ms < end) raf = requestAnimationFrame(tick);
+  }
+  function play() {
+    cancelAnimationFrame(raf); start = null;
+    if (reduce) { draw(end); return; }
+    raf = requestAnimationFrame(tick);
+  }
+  img.onload = play;
+  img.src = 'assets/code.jpg';
+  document.getElementById('again').addEventListener('click', play);
+})();
+</script>
+</body>
+</html>

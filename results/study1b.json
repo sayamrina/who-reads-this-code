@@ -1,0 +1,56 @@
+{
+ "silhouette": {
+  "2": 0.266,
+  "3": 0.244,
+  "4": 0.208,
+  "5": 0.193
+ },
+ "k": 2,
+ "clusters": [
+  {
+   "cluster": 0,
+   "n_trials": 107,
+   "description": "rarely goes back; reads line by line",
+   "mean_expertise": 1.78,
+   "share_high_expertise": 0.18,
+   "share_correct": 0.42,
+   "centroid": {
+    "mean_fix_ms": 136.25,
+    "regression_rate": 0.237,
+    "next_line_rate": 0.47,
+    "line_regression_rate": 0.356,
+    "coverage": 0.377
+   }
+  },
+  {
+   "cluster": 1,
+   "n_trials": 244,
+   "description": "often goes back to earlier lines; jumps between distant lines",
+   "mean_expertise": 1.98,
+   "share_high_expertise": 0.2,
+   "share_correct": 0.5,
+   "centroid": {
+    "mean_fix_ms": 134.882,
+    "regression_rate": 0.308,
+    "next_line_rate": 0.348,
+    "line_regression_rate": 0.448,
+    "coverage": 0.453
+   }
+  }
+ ],
+ "expertise_by_cluster_kruskal": {
+  "H": 4.52,
+  "p": 0.033505132805707015
+ },
+ "correct_by_cluster_chi2": {
+  "chi2": 1.577,
+  "p": 0.20919925927494923
+ },
+ "spearman_features_vs_years": {
+  "mean_fix_ms": 0.121,
+  "regression_rate": -0.094,
+  "next_line_rate": 0.002,
+  "line_regression_rate": 0.018,
+  "coverage": 0.069
+ }
+}

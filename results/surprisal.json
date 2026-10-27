@@ -1,0 +1,2054 @@
+{
+ "Rectangle.java": [
+  {
+   "line": 1,
+   "index": 0,
+   "text": "public",
+   "start": 0,
+   "end": 6,
+   "bits": 0
+  },
+  {
+   "line": 1,
+   "index": 1,
+   "text": "class",
+   "start": 7,
+   "end": 12,
+   "bits": 4.208
+  },
+  {
+   "line": 1,
+   "index": 2,
+   "text": "Rectangle",
+   "start": 13,
+   "end": 22,
+   "bits": 9.204
+  },
+  {
+   "line": 1,
+   "index": 3,
+   "text": "{",
+   "start": 23,
+   "end": 24,
+   "bits": 3.748
+  },
+  {
+   "line": 3,
+   "index": 0,
+   "text": "private",
+   "start": 27,
+   "end": 34,
+   "bits": 3.893
+  },
+  {
+   "line": 3,
+   "index": 1,
+   "text": "int",
+   "start": 35,
+   "end": 38,
+   "bits": 1.657
+  },
+  {
+   "line": 3,
+   "index": 2,
+   "text": "x1",
+   "start": 39,
+   "end": 41,
+   "bits": 4.475
+  },
+  {
+   "line": 3,
+   "index": 3,
+   "text": ",",
+   "start": 42,
+   "end": 43,
+   "bits": 8.74
+  },
+  {
+   "line": 3,
+   "index": 4,
+   "text": "y1",
+   "start": 44,
+   "end": 46,
+   "bits": 0.516
+  },
+  {
+   "line": 3,
+   "index": 5,
+   "text": ",",
+   "start": 47,
+   "end": 48,
+   "bits": 0.894
+  },
+  {
+   "line": 3,
+   "index": 6,
+   "text": "x2",
+   "start": 49,
+   "end": 51,
+   "bits": 0.314
+  },
+  {
+   "line": 3,
+   "index": 7,
+   "text": ",",
+   "start": 52,
+   "end": 53,
+   "bits": 0.164
+  },
+  {
+   "line": 3,
+   "index": 8,
+   "text": "y2",
+   "start": 54,
+   "end": 56,
+   "bits": 0.046
+  },
+  {
+   "line": 3,
+   "index": 9,
+   "text": ";",
+   "start": 57,
+   "end": 58,
+   "bits": 3.741
+  },
+  {
+   "line": 5,
+   "index": 0,
+   "text": "public",
+   "start": 61,
+   "end": 67,
+   "bits": 0.727
+  },
+  {
+   "line": 5,
+   "index": 1,
+   "text": "Rectangle",
+   "start": 68,
+   "end": 77,
+   "bits": 0.246
+  },
+  {
+   "line": 5,
+   "index": 2,
+   "text": "(",
+   "start": 78,
+   "end": 79,
+   "bits": 2.767
+  },
+  {
+   "line": 5,
+   "index": 3,
+   "text": "int",
+   "start": 80,
+   "end": 83,
+   "bits": 1.202
+  },
+  {
+   "line": 5,
+   "index": 4,
+   "text": "x1",
+   "start": 84,
+   "end": 86,
+   "bits": 0.246
+  },
+  {
+   "line": 5,
+   "index": 5,
+   "text": ",",
+   "start": 87,
+   "end": 88,
+   "bits": 0.434
+  },
+  {
+   "line": 5,
+   "index": 6,
+   "text": "int",
+   "start": 89,
+   "end": 92,
+   "bits": 0.026
+  },
+  {
+   "line": 5,
+   "index": 7,
+   "text": "y1",
+   "start": 93,
+   "end": 95,
+   "bits": 0.042
+  },
+  {
+   "line": 5,
+   "index": 8,
+   "text": ",",
+   "start": 96,
+   "end": 97,
+   "bits": 0.065
+  },
+  {
+   "line": 5,
+   "index": 9,
+   "text": "int",
+   "start": 98,
+   "end": 101,
+   "bits": 0.019
+  },
+  {
+   "line": 5,
+   "index": 10,
+   "text": "x2",
+   "start": 102,
+   "end": 104,
+   "bits": 0.008
+  },
+  {
+   "line": 5,
+   "index": 11,
+   "text": ",",
+   "start": 105,
+   "end": 106,
+   "bits": 0.018
+  },
+  {
+   "line": 5,
+   "index": 12,
+   "text": "int",
+   "start": 107,
+   "end": 110,
+   "bits": 0.015
+  },
+  {
+   "line": 5,
+   "index": 13,
+   "text": "y2",
+   "start": 111,
+   "end": 113,
+   "bits": 0.002
+  },
+  {
+   "line": 5,
+   "index": 14,
+   "text": ")",
+   "start": 114,
+   "end": 115,
+   "bits": 0.835
+  },
+  {
+   "line": 5,
+   "index": 15,
+   "text": "{",
+   "start": 116,
+   "end": 117,
+   "bits": 2.49
+  },
+  {
+   "line": 7,
+   "index": 0,
+   "text": "this.x1",
+   "start": 121,
+   "end": 128,
+   "bits": 0.397
+  },
+  {
+   "line": 7,
+   "index": 1,
+   "text": "=",
+   "start": 129,
+   "end": 130,
+   "bits": 0.051
+  },
+  {
+   "line": 7,
+   "index": 2,
+   "text": "x1",
+   "start": 131,
+   "end": 133,
+   "bits": 0.02
+  },
+  {
+   "line": 7,
+   "index": 3,
+   "text": ";",
+   "start": 134,
+   "end": 135,
+   "bits": 7.206
+  },
+  {
+   "line": 9,
+   "index": 0,
+   "text": "this.y1",
+   "start": 139,
+   "end": 146,
+   "bits": 0.091
+  },
+  {
+   "line": 9,
+   "index": 1,
+   "text": "=",
+   "start": 147,
+   "end": 148,
+   "bits": 0.004
+  },
+  {
+   "line": 9,
+   "index": 2,
+   "text": "y1",
+   "start": 149,
+   "end": 151,
+   "bits": 0.003
+  },
+  {
+   "line": 9,
+   "index": 3,
+   "text": ";",
+   "start": 152,
+   "end": 153,
+   "bits": 0.384
+  },
+  {
+   "line": 11,
+   "index": 0,
+   "text": "this.x2",
+   "start": 157,
+   "end": 164,
+   "bits": 0.013
+  },
+  {
+   "line": 11,
+   "index": 1,
+   "text": "=",
+   "start": 165,
+   "end": 166,
+   "bits": 0.003
+  },
+  {
+   "line": 11,
+   "index": 2,
+   "text": "x2",
+   "start": 167,
+   "end": 169,
+   "bits": 0.006
+  },
+  {
+   "line": 11,
+   "index": 3,
+   "text": ";",
+   "start": 170,
+   "end": 171,
+   "bits": 0.318
+  },
+  {
+   "line": 13,
+   "index": 0,
+   "text": "this.y2",
+   "start": 175,
+   "end": 182,
+   "bits": 0.003
+  },
+  {
+   "line": 13,
+   "index": 1,
+   "text": "=",
+   "start": 183,
+   "end": 184,
+   "bits": 0.002
+  },
+  {
+   "line": 13,
+   "index": 2,
+   "text": "y2",
+   "start": 185,
+   "end": 187,
+   "bits": 0.003
+  },
+  {
+   "line": 13,
+   "index": 3,
+   "text": ";",
+   "start": 188,
+   "end": 189,
+   "bits": 0.645
+  },
+  {
+   "line": 15,
+   "index": 0,
+   "text": "}",
+   "start": 192,
+   "end": 193,
+   "bits": 0.72
+  },
+  {
+   "line": 17,
+   "index": 0,
+   "text": "public",
+   "start": 196,
+   "end": 202,
+   "bits": 0.393
+  },
+  {
+   "line": 17,
+   "index": 1,
+   "text": "int",
+   "start": 203,
+   "end": 206,
+   "bits": 0.972
+  },
+  {
+   "line": 17,
+   "index": 2,
+   "text": "width",
+   "start": 207,
+   "end": 212,
+   "bits": 7.055
+  },
+  {
+   "line": 17,
+   "index": 3,
+   "text": "(",
+   "start": 213,
+   "end": 214,
+   "bits": 4.558
+  },
+  {
+   "line": 17,
+   "index": 4,
+   "text": ")",
+   "start": 215,
+   "end": 216,
+   "bits": 0.314
+  },
+  {
+   "line": 17,
+   "index": 5,
+   "text": "{",
+   "start": 217,
+   "end": 218,
+   "bits": 2.133
+  },
+  {
+   "line": 17,
+   "index": 6,
+   "text": "return",
+   "start": 219,
+   "end": 225,
+   "bits": 2.222
+  },
+  {
+   "line": 17,
+   "index": 7,
+   "text": "this.x2",
+   "start": 226,
+   "end": 233,
+   "bits": 3.394
+  },
+  {
+   "line": 17,
+   "index": 8,
+   "text": "-",
+   "start": 234,
+   "end": 235,
+   "bits": 0.099
+  },
+  {
+   "line": 17,
+   "index": 9,
+   "text": "this.x1",
+   "start": 236,
+   "end": 243,
+   "bits": 0.013
+  },
+  {
+   "line": 17,
+   "index": 10,
+   "text": ";",
+   "start": 244,
+   "end": 245,
+   "bits": 0.514
+  },
+  {
+   "line": 17,
+   "index": 11,
+   "text": "}",
+   "start": 246,
+   "end": 247,
+   "bits": 0.842
+  },
+  {
+   "line": 19,
+   "index": 0,
+   "text": "public",
+   "start": 250,
+   "end": 256,
+   "bits": 0.007
+  },
+  {
+   "line": 19,
+   "index": 1,
+   "text": "int",
+   "start": 257,
+   "end": 260,
+   "bits": 0.006
+  },
+  {
+   "line": 19,
+   "index": 2,
+   "text": "height",
+   "start": 261,
+   "end": 267,
+   "bits": 0.199
+  },
+  {
+   "line": 19,
+   "index": 3,
+   "text": "(",
+   "start": 268,
+   "end": 269,
+   "bits": 0.042
+  },
+  {
+   "line": 19,
+   "index": 4,
+   "text": ")",
+   "start": 270,
+   "end": 271,
+   "bits": 0.005
+  },
+  {
+   "line": 19,
+   "index": 5,
+   "text": "{",
+   "start": 272,
+   "end": 273,
+   "bits": 0.009
+  },
+  {
+   "line": 19,
+   "index": 6,
+   "text": "return",
+   "start": 274,
+   "end": 280,
+   "bits": 0.013
+  },
+  {
+   "line": 19,
+   "index": 7,
+   "text": "this.y2",
+   "start": 281,
+   "end": 288,
+   "bits": 0.011
+  },
+  {
+   "line": 19,
+   "index": 8,
+   "text": "-",
+   "start": 289,
+   "end": 290,
+   "bits": 0.003
+  },
+  {
+   "line": 19,
+   "index": 9,
+   "text": "this.y1",
+   "start": 291,
+   "end": 298,
+   "bits": 0.004
+  },
+  {
+   "line": 19,
+   "index": 10,
+   "text": ";",
+   "start": 299,
+   "end": 300,
+   "bits": 0.006
+  },
+  {
+   "line": 19,
+   "index": 11,
+   "text": "}",
+   "start": 301,
+   "end": 302,
+   "bits": 0.416
+  },
+  {
+   "line": 21,
+   "index": 0,
+   "text": "public",
+   "start": 305,
+   "end": 311,
+   "bits": 0.175
+  },
+  {
+   "line": 21,
+   "index": 1,
+   "text": "double",
+   "start": 312,
+   "end": 318,
+   "bits": 3.138
+  },
+  {
+   "line": 21,
+   "index": 2,
+   "text": "area",
+   "start": 319,
+   "end": 323,
+   "bits": 0.32
+  },
+  {
+   "line": 21,
+   "index": 3,
+   "text": "(",
+   "start": 324,
+   "end": 325,
+   "bits": 0.102
+  },
+  {
+   "line": 21,
+   "index": 4,
+   "text": ")",
+   "start": 326,
+   "end": 327,
+   "bits": 0.018
+  },
+  {
+   "line": 21,
+   "index": 5,
+   "text": "{",
+   "start": 328,
+   "end": 329,
+   "bits": 0.23
+  },
+  {
+   "line": 21,
+   "index": 6,
+   "text": "return",
+   "start": 330,
+   "end": 336,
+   "bits": 0.098
+  },
+  {
+   "line": 21,
+   "index": 7,
+   "text": "this.width",
+   "start": 337,
+   "end": 347,
+   "bits": 0.897
+  },
+  {
+   "line": 21,
+   "index": 8,
+   "text": "(",
+   "start": 348,
+   "end": 349,
+   "bits": 2.608
+  },
+  {
+   "line": 21,
+   "index": 9,
+   "text": ")",
+   "start": 350,
+   "end": 351,
+   "bits": 0.132
+  },
+  {
+   "line": 21,
+   "index": 10,
+   "text": "*",
+   "start": 352,
+   "end": 353,
+   "bits": 0.01
+  },
+  {
+   "line": 21,
+   "index": 11,
+   "text": "this.height",
+   "start": 354,
+   "end": 365,
+   "bits": 0.013
+  },
+  {
+   "line": 21,
+   "index": 12,
+   "text": "(",
+   "start": 366,
+   "end": 367,
+   "bits": 0.004
+  },
+  {
+   "line": 21,
+   "index": 13,
+   "text": ")",
+   "start": 368,
+   "end": 369,
+   "bits": 0.018
+  },
+  {
+   "line": 21,
+   "index": 14,
+   "text": ";",
+   "start": 370,
+   "end": 371,
+   "bits": 0.012
+  },
+  {
+   "line": 21,
+   "index": 15,
+   "text": "}",
+   "start": 372,
+   "end": 373,
+   "bits": 0.443
+  },
+  {
+   "line": 23,
+   "index": 0,
+   "text": "public",
+   "start": 376,
+   "end": 382,
+   "bits": 0.314
+  },
+  {
+   "line": 23,
+   "index": 1,
+   "text": "static",
+   "start": 383,
+   "end": 389,
+   "bits": 4.883
+  },
+  {
+   "line": 23,
+   "index": 2,
+   "text": "void",
+   "start": 390,
+   "end": 394,
+   "bits": 0.48
+  },
+  {
+   "line": 23,
+   "index": 3,
+   "text": "main",
+   "start": 395,
+   "end": 399,
+   "bits": 0.127
+  },
+  {
+   "line": 23,
+   "index": 4,
+   "text": "(",
+   "start": 400,
+   "end": 401,
+   "bits": 0.156
+  },
+  {
+   "line": 23,
+   "index": 5,
+   "text": "String",
+   "start": 402,
+   "end": 408,
+   "bits": 0.041
+  },
+  {
+   "line": 23,
+   "index": 6,
+   "text": "[",
+   "start": 409,
+   "end": 410,
+   "bits": 4.67
+  },
+  {
+   "line": 23,
+   "index": 7,
+   "text": "]",
+   "start": 411,
+   "end": 412,
+   "bits": 0.004
+  },
+  {
+   "line": 23,
+   "index": 8,
+   "text": "args",
+   "start": 413,
+   "end": 417,
+   "bits": 0.059
+  },
+  {
+   "line": 23,
+   "index": 9,
+   "text": ")",
+   "start": 418,
+   "end": 419,
+   "bits": 0.017
+  },
+  {
+   "line": 23,
+   "index": 10,
+   "text": "{",
+   "start": 420,
+   "end": 421,
+   "bits": 0.443
+  },
+  {
+   "line": 25,
+   "index": 0,
+   "text": "Rectangle",
+   "start": 425,
+   "end": 434,
+   "bits": 0.103
+  },
+  {
+   "line": 25,
+   "index": 1,
+   "text": "rect1",
+   "start": 435,
+   "end": 440,
+   "bits": 3.361
+  },
+  {
+   "line": 25,
+   "index": 2,
+   "text": "=",
+   "start": 441,
+   "end": 442,
+   "bits": 0.133
+  },
+  {
+   "line": 25,
+   "index": 3,
+   "text": "new",
+   "start": 443,
+   "end": 446,
+   "bits": 0.008
+  },
+  {
+   "line": 25,
+   "index": 4,
+   "text": "Rectangle",
+   "start": 447,
+   "end": 456,
+   "bits": 0.003
+  },
+  {
+   "line": 25,
+   "index": 5,
+   "text": "(",
+   "start": 457,
+   "end": 458,
+   "bits": 0.094
+  },
+  {
+   "line": 25,
+   "index": 6,
+   "text": "0",
+   "start": 459,
+   "end": 460,
+   "bits": 1.952
+  },
+  {
+   "line": 25,
+   "index": 7,
+   "text": ",",
+   "start": 461,
+   "end": 462,
+   "bits": 0.183
+  },
+  {
+   "line": 25,
+   "index": 8,
+   "text": "0",
+   "start": 463,
+   "end": 464,
+   "bits": 0.116
+  },
+  {
+   "line": 25,
+   "index": 9,
+   "text": ",",
+   "start": 465,
+   "end": 466,
+   "bits": 0.007
+  },
+  {
+   "line": 25,
+   "index": 10,
+   "text": "10",
+   "start": 467,
+   "end": 469,
+   "bits": 1.355
+  },
+  {
+   "line": 25,
+   "index": 11,
+   "text": ",",
+   "start": 470,
+   "end": 471,
+   "bits": 0.275
+  },
+  {
+   "line": 25,
+   "index": 12,
+   "text": "10",
+   "start": 472,
+   "end": 474,
+   "bits": 0.807
+  },
+  {
+   "line": 25,
+   "index": 13,
+   "text": ")",
+   "start": 475,
+   "end": 476,
+   "bits": 0.146
+  },
+  {
+   "line": 25,
+   "index": 14,
+   "text": ";",
+   "start": 477,
+   "end": 478,
+   "bits": 0.654
+  },
+  {
+   "line": 27,
+   "index": 0,
+   "text": "System.out.println",
+   "start": 482,
+   "end": 500,
+   "bits": 0.787
+  },
+  {
+   "line": 27,
+   "index": 1,
+   "text": "(",
+   "start": 501,
+   "end": 502,
+   "bits": 0.11
+  },
+  {
+   "line": 27,
+   "index": 2,
+   "text": "rect1.area",
+   "start": 503,
+   "end": 513,
+   "bits": 2.04
+  },
+  {
+   "line": 27,
+   "index": 3,
+   "text": "(",
+   "start": 514,
+   "end": 515,
+   "bits": 0.043
+  },
+  {
+   "line": 27,
+   "index": 4,
+   "text": ")",
+   "start": 516,
+   "end": 517,
+   "bits": 0.027
+  },
+  {
+   "line": 27,
+   "index": 5,
+   "text": ")",
+   "start": 518,
+   "end": 519,
+   "bits": 0.505
+  },
+  {
+   "line": 27,
+   "index": 6,
+   "text": ";",
+   "start": 520,
+   "end": 521,
+   "bits": 0.547
+  },
+  {
+   "line": 29,
+   "index": 0,
+   "text": "Rectangle",
+   "start": 525,
+   "end": 534,
+   "bits": 0.079
+  },
+  {
+   "line": 29,
+   "index": 1,
+   "text": "rect2",
+   "start": 535,
+   "end": 540,
+   "bits": 0.025
+  },
+  {
+   "line": 29,
+   "index": 2,
+   "text": "=",
+   "start": 541,
+   "end": 542,
+   "bits": 0.013
+  },
+  {
+   "line": 29,
+   "index": 3,
+   "text": "new",
+   "start": 543,
+   "end": 546,
+   "bits": 0.005
+  },
+  {
+   "line": 29,
+   "index": 4,
+   "text": "Rectangle",
+   "start": 547,
+   "end": 556,
+   "bits": 0.0
+  },
+  {
+   "line": 29,
+   "index": 5,
+   "text": "(",
+   "start": 557,
+   "end": 558,
+   "bits": 0.006
+  },
+  {
+   "line": 29,
+   "index": 6,
+   "text": "5",
+   "start": 559,
+   "end": 560,
+   "bits": 2.458
+  },
+  {
+   "line": 29,
+   "index": 7,
+   "text": ",",
+   "start": 561,
+   "end": 562,
+   "bits": 0.051
+  },
+  {
+   "line": 29,
+   "index": 8,
+   "text": "5",
+   "start": 563,
+   "end": 564,
+   "bits": 0.602
+  },
+  {
+   "line": 29,
+   "index": 9,
+   "text": ",",
+   "start": 565,
+   "end": 566,
+   "bits": 0.009
+  },
+  {
+   "line": 29,
+   "index": 10,
+   "text": "10",
+   "start": 567,
+   "end": 569,
+   "bits": 1.59
+  },
+  {
+   "line": 29,
+   "index": 11,
+   "text": ",",
+   "start": 570,
+   "end": 571,
+   "bits": 0.028
+  },
+  {
+   "line": 29,
+   "index": 12,
+   "text": "10",
+   "start": 572,
+   "end": 574,
+   "bits": 0.251
+  },
+  {
+   "line": 29,
+   "index": 13,
+   "text": ")",
+   "start": 575,
+   "end": 576,
+   "bits": 0.011
+  },
+  {
+   "line": 29,
+   "index": 14,
+   "text": ";",
+   "start": 577,
+   "end": 578,
+   "bits": 0.282
+  },
+  {
+   "line": 31,
+   "index": 0,
+   "text": "System.out.println",
+   "start": 582,
+   "end": 600,
+   "bits": 0.027
+  },
+  {
+   "line": 31,
+   "index": 1,
+   "text": "(",
+   "start": 601,
+   "end": 602,
+   "bits": 0.001
+  },
+  {
+   "line": 31,
+   "index": 2,
+   "text": "rect2.area",
+   "start": 603,
+   "end": 613,
+   "bits": 0.098
+  },
+  {
+   "line": 31,
+   "index": 3,
+   "text": "(",
+   "start": 614,
+   "end": 615,
+   "bits": 0.003
+  },
+  {
+   "line": 31,
+   "index": 4,
+   "text": ")",
+   "start": 616,
+   "end": 617,
+   "bits": 0.001
+  },
+  {
+   "line": 31,
+   "index": 5,
+   "text": ")",
+   "start": 618,
+   "end": 619,
+   "bits": 0.017
+  },
+  {
+   "line": 31,
+   "index": 6,
+   "text": ";",
+   "start": 620,
+   "end": 621,
+   "bits": 0.399
+  },
+  {
+   "line": 33,
+   "index": 0,
+   "text": "}",
+   "start": 624,
+   "end": 625,
+   "bits": 1.641
+  },
+  {
+   "line": 35,
+   "index": 0,
+   "text": "}",
+   "start": 627,
+   "end": 628,
+   "bits": 4.572
+  }
+ ],
+ "Vehicle.java": [
+  {
+   "line": 1,
+   "index": 0,
+   "text": "public",
+   "start": 0,
+   "end": 6,
+   "bits": 0
+  },
+  {
+   "line": 1,
+   "index": 1,
+   "text": "class",
+   "start": 7,
+   "end": 12,
+   "bits": 4.208
+  },
+  {
+   "line": 1,
+   "index": 2,
+   "text": "Vehicle",
+   "start": 13,
+   "end": 20,
+   "bits": 10.246
+  },
+  {
+   "line": 1,
+   "index": 3,
+   "text": "{",
+   "start": 21,
+   "end": 22,
+   "bits": 3.277
+  },
+  {
+   "line": 3,
+   "index": 0,
+   "text": "String",
+   "start": 25,
+   "end": 31,
+   "bits": 5.788
+  },
+  {
+   "line": 3,
+   "index": 1,
+   "text": "producer",
+   "start": 32,
+   "end": 40,
+   "bits": 11.179
+  },
+  {
+   "line": 3,
+   "index": 2,
+   "text": ",",
+   "start": 41,
+   "end": 42,
+   "bits": 11.913
+  },
+  {
+   "line": 3,
+   "index": 3,
+   "text": "type",
+   "start": 43,
+   "end": 47,
+   "bits": 4.389
+  },
+  {
+   "line": 3,
+   "index": 4,
+   "text": ";",
+   "start": 48,
+   "end": 49,
+   "bits": 6.327
+  },
+  {
+   "line": 5,
+   "index": 0,
+   "text": "int",
+   "start": 52,
+   "end": 55,
+   "bits": 3.97
+  },
+  {
+   "line": 5,
+   "index": 1,
+   "text": "topSpeed",
+   "start": 56,
+   "end": 64,
+   "bits": 7.012
+  },
+  {
+   "line": 5,
+   "index": 2,
+   "text": ",",
+   "start": 65,
+   "end": 66,
+   "bits": 1.759
+  },
+  {
+   "line": 5,
+   "index": 3,
+   "text": "currentSpeed",
+   "start": 67,
+   "end": 79,
+   "bits": 6.415
+  },
+  {
+   "line": 5,
+   "index": 4,
+   "text": ";",
+   "start": 80,
+   "end": 81,
+   "bits": 7.696
+  },
+  {
+   "line": 8,
+   "index": 0,
+   "text": "public",
+   "start": 85,
+   "end": 91,
+   "bits": 1.707
+  },
+  {
+   "line": 8,
+   "index": 1,
+   "text": "Vehicle",
+   "start": 92,
+   "end": 99,
+   "bits": 0.59
+  },
+  {
+   "line": 8,
+   "index": 2,
+   "text": "(",
+   "start": 100,
+   "end": 101,
+   "bits": 3.273
+  },
+  {
+   "line": 8,
+   "index": 3,
+   "text": "String",
+   "start": 102,
+   "end": 108,
+   "bits": 1.323
+  },
+  {
+   "line": 8,
+   "index": 4,
+   "text": "p",
+   "start": 109,
+   "end": 110,
+   "bits": 1.806
+  },
+  {
+   "line": 8,
+   "index": 5,
+   "text": ",",
+   "start": 111,
+   "end": 112,
+   "bits": 0.382
+  },
+  {
+   "line": 8,
+   "index": 6,
+   "text": "String",
+   "start": 113,
+   "end": 119,
+   "bits": 0.204
+  },
+  {
+   "line": 8,
+   "index": 7,
+   "text": "t",
+   "start": 120,
+   "end": 121,
+   "bits": 0.203
+  },
+  {
+   "line": 8,
+   "index": 8,
+   "text": ",",
+   "start": 122,
+   "end": 123,
+   "bits": 0.965
+  },
+  {
+   "line": 8,
+   "index": 9,
+   "text": "int",
+   "start": 124,
+   "end": 127,
+   "bits": 0.057
+  },
+  {
+   "line": 8,
+   "index": 10,
+   "text": "tp",
+   "start": 128,
+   "end": 130,
+   "bits": 5.5
+  },
+  {
+   "line": 8,
+   "index": 11,
+   "text": ")",
+   "start": 131,
+   "end": 132,
+   "bits": 5.766
+  },
+  {
+   "line": 8,
+   "index": 12,
+   "text": "{",
+   "start": 133,
+   "end": 134,
+   "bits": 2.176
+  },
+  {
+   "line": 10,
+   "index": 0,
+   "text": "this.producer",
+   "start": 138,
+   "end": 151,
+   "bits": 2.301
+  },
+  {
+   "line": 10,
+   "index": 1,
+   "text": "=",
+   "start": 152,
+   "end": 153,
+   "bits": 0.06
+  },
+  {
+   "line": 10,
+   "index": 2,
+   "text": "p",
+   "start": 154,
+   "end": 155,
+   "bits": 0.016
+  },
+  {
+   "line": 10,
+   "index": 3,
+   "text": ";",
+   "start": 156,
+   "end": 157,
+   "bits": 4.97
+  },
+  {
+   "line": 12,
+   "index": 0,
+   "text": "this.type",
+   "start": 161,
+   "end": 170,
+   "bits": 0.056
+  },
+  {
+   "line": 12,
+   "index": 1,
+   "text": "=",
+   "start": 171,
+   "end": 172,
+   "bits": 0.029
+  },
+  {
+   "line": 12,
+   "index": 2,
+   "text": "t",
+   "start": 173,
+   "end": 174,
+   "bits": 0.005
+  },
+  {
+   "line": 12,
+   "index": 3,
+   "text": ";",
+   "start": 175,
+   "end": 176,
+   "bits": 0.375
+  },
+  {
+   "line": 14,
+   "index": 0,
+   "text": "this.topSpeed",
+   "start": 180,
+   "end": 193,
+   "bits": 0.154
+  },
+  {
+   "line": 14,
+   "index": 1,
+   "text": "=",
+   "start": 194,
+   "end": 195,
+   "bits": 0.01
+  },
+  {
+   "line": 14,
+   "index": 2,
+   "text": "tp",
+   "start": 196,
+   "end": 198,
+   "bits": 0.012
+  },
+  {
+   "line": 14,
+   "index": 3,
+   "text": ";",
+   "start": 199,
+   "end": 200,
+   "bits": 0.484
+  },
+  {
+   "line": 16,
+   "index": 0,
+   "text": "this.currentSpeed",
+   "start": 204,
+   "end": 221,
+   "bits": 0.42
+  },
+  {
+   "line": 16,
+   "index": 1,
+   "text": "=",
+   "start": 222,
+   "end": 223,
+   "bits": 0.011
+  },
+  {
+   "line": 16,
+   "index": 2,
+   "text": "0",
+   "start": 224,
+   "end": 225,
+   "bits": 0.027
+  },
+  {
+   "line": 16,
+   "index": 3,
+   "text": ";",
+   "start": 226,
+   "end": 227,
+   "bits": 0.819
+  },
+  {
+   "line": 18,
+   "index": 0,
+   "text": "}",
+   "start": 230,
+   "end": 231,
+   "bits": 2.566
+  },
+  {
+   "line": 21,
+   "index": 0,
+   "text": "public",
+   "start": 235,
+   "end": 241,
+   "bits": 0.549
+  },
+  {
+   "line": 21,
+   "index": 1,
+   "text": "int",
+   "start": 242,
+   "end": 245,
+   "bits": 4.612
+  },
+  {
+   "line": 21,
+   "index": 2,
+   "text": "accelerate",
+   "start": 246,
+   "end": 256,
+   "bits": 7.186
+  },
+  {
+   "line": 21,
+   "index": 3,
+   "text": "(",
+   "start": 257,
+   "end": 258,
+   "bits": 1.344
+  },
+  {
+   "line": 21,
+   "index": 4,
+   "text": "int",
+   "start": 259,
+   "end": 262,
+   "bits": 0.347
+  },
+  {
+   "line": 21,
+   "index": 5,
+   "text": "kmh",
+   "start": 263,
+   "end": 266,
+   "bits": 12.714
+  },
+  {
+   "line": 21,
+   "index": 6,
+   "text": ")",
+   "start": 267,
+   "end": 268,
+   "bits": 0.171
+  },
+  {
+   "line": 21,
+   "index": 7,
+   "text": "{",
+   "start": 269,
+   "end": 270,
+   "bits": 0.576
+  },
+  {
+   "line": 23,
+   "index": 0,
+   "text": "if",
+   "start": 274,
+   "end": 276,
+   "bits": 2.451
+  },
+  {
+   "line": 23,
+   "index": 1,
+   "text": "(",
+   "start": 277,
+   "end": 278,
+   "bits": 0.271
+  },
+  {
+   "line": 23,
+   "index": 2,
+   "text": "(",
+   "start": 279,
+   "end": 280,
+   "bits": 4.228
+  },
+  {
+   "line": 23,
+   "index": 3,
+   "text": "this.currentSpeed",
+   "start": 281,
+   "end": 298,
+   "bits": 1.736
+  },
+  {
+   "line": 23,
+   "index": 4,
+   "text": "+",
+   "start": 299,
+   "end": 300,
+   "bits": 0.132
+  },
+  {
+   "line": 23,
+   "index": 5,
+   "text": "kmh",
+   "start": 301,
+   "end": 304,
+   "bits": 0.161
+  },
+  {
+   "line": 23,
+   "index": 6,
+   "text": ")",
+   "start": 305,
+   "end": 306,
+   "bits": 0.15
+  },
+  {
+   "line": 23,
+   "index": 7,
+   "text": ">",
+   "start": 307,
+   "end": 308,
+   "bits": 1.786
+  },
+  {
+   "line": 23,
+   "index": 8,
+   "text": "this.topSpeed",
+   "start": 309,
+   "end": 322,
+   "bits": 0.218
+  },
+  {
+   "line": 23,
+   "index": 9,
+   "text": ")",
+   "start": 323,
+   "end": 324,
+   "bits": 0.132
+  },
+  {
+   "line": 23,
+   "index": 10,
+   "text": "{",
+   "start": 325,
+   "end": 326,
+   "bits": 0.681
+  },
+  {
+   "line": 25,
+   "index": 0,
+   "text": "this.currentSpeed",
+   "start": 331,
+   "end": 348,
+   "bits": 0.597
+  },
+  {
+   "line": 25,
+   "index": 1,
+   "text": "=",
+   "start": 349,
+   "end": 350,
+   "bits": 0.028
+  },
+  {
+   "line": 25,
+   "index": 2,
+   "text": "this.topSpeed",
+   "start": 351,
+   "end": 364,
+   "bits": 0.111
+  },
+  {
+   "line": 25,
+   "index": 3,
+   "text": ";",
+   "start": 365,
+   "end": 366,
+   "bits": 0.438
+  },
+  {
+   "line": 27,
+   "index": 0,
+   "text": "}",
+   "start": 370,
+   "end": 371,
+   "bits": 0.879
+  },
+  {
+   "line": 27,
+   "index": 1,
+   "text": "else",
+   "start": 372,
+   "end": 376,
+   "bits": 0.283
+  },
+  {
+   "line": 27,
+   "index": 2,
+   "text": "{",
+   "start": 377,
+   "end": 378,
+   "bits": 6.372
+  },
+  {
+   "line": 29,
+   "index": 0,
+   "text": "this.currentSpeed",
+   "start": 384,
+   "end": 401,
+   "bits": 0.018
+  },
+  {
+   "line": 29,
+   "index": 1,
+   "text": "=",
+   "start": 402,
+   "end": 403,
+   "bits": 1.309
+  },
+  {
+   "line": 29,
+   "index": 2,
+   "text": "this.currentSpeed",
+   "start": 404,
+   "end": 421,
+   "bits": 0.29
+  },
+  {
+   "line": 29,
+   "index": 3,
+   "text": "+",
+   "start": 422,
+   "end": 423,
+   "bits": 0.009
+  },
+  {
+   "line": 29,
+   "index": 4,
+   "text": "kmh",
+   "start": 424,
+   "end": 427,
+   "bits": 0.014
+  },
+  {
+   "line": 29,
+   "index": 5,
+   "text": ";",
+   "start": 428,
+   "end": 429,
+   "bits": 1.328
+  },
+  {
+   "line": 31,
+   "index": 0,
+   "text": "}",
+   "start": 433,
+   "end": 434,
+   "bits": 0.86
+  },
+  {
+   "line": 33,
+   "index": 0,
+   "text": "return",
+   "start": 438,
+   "end": 444,
+   "bits": 0.346
+  },
+  {
+   "line": 33,
+   "index": 1,
+   "text": "this.currentSpeed",
+   "start": 445,
+   "end": 462,
+   "bits": 0.134
+  },
+  {
+   "line": 33,
+   "index": 2,
+   "text": ";",
+   "start": 463,
+   "end": 464,
+   "bits": 0.571
+  },
+  {
+   "line": 35,
+   "index": 0,
+   "text": "}",
+   "start": 467,
+   "end": 468,
+   "bits": 0.921
+  },
+  {
+   "line": 38,
+   "index": 0,
+   "text": "public",
+   "start": 472,
+   "end": 478,
+   "bits": 0.203
+  },
+  {
+   "line": 38,
+   "index": 1,
+   "text": "static",
+   "start": 479,
+   "end": 485,
+   "bits": 6.756
+  },
+  {
+   "line": 38,
+   "index": 2,
+   "text": "void",
+   "start": 486,
+   "end": 490,
+   "bits": 0.274
+  },
+  {
+   "line": 38,
+   "index": 3,
+   "text": "main",
+   "start": 491,
+   "end": 495,
+   "bits": 0.306
+  },
+  {
+   "line": 38,
+   "index": 4,
+   "text": "(",
+   "start": 496,
+   "end": 497,
+   "bits": 0.231
+  },
+  {
+   "line": 38,
+   "index": 5,
+   "text": "String",
+   "start": 498,
+   "end": 504,
+   "bits": 0.044
+  },
+  {
+   "line": 38,
+   "index": 6,
+   "text": "args",
+   "start": 505,
+   "end": 509,
+   "bits": 2.775
+  },
+  {
+   "line": 38,
+   "index": 7,
+   "text": "[",
+   "start": 510,
+   "end": 511,
+   "bits": 6.915
+  },
+  {
+   "line": 38,
+   "index": 8,
+   "text": "]",
+   "start": 512,
+   "end": 513,
+   "bits": 0.243
+  },
+  {
+   "line": 38,
+   "index": 9,
+   "text": ")",
+   "start": 514,
+   "end": 515,
+   "bits": 0.024
+  },
+  {
+   "line": 38,
+   "index": 10,
+   "text": "{",
+   "start": 516,
+   "end": 517,
+   "bits": 0.477
+  },
+  {
+   "line": 40,
+   "index": 0,
+   "text": "Vehicle",
+   "start": 521,
+   "end": 528,
+   "bits": 0.291
+  },
+  {
+   "line": 40,
+   "index": 1,
+   "text": "v",
+   "start": 529,
+   "end": 530,
+   "bits": 3.489
+  },
+  {
+   "line": 40,
+   "index": 2,
+   "text": "=",
+   "start": 531,
+   "end": 532,
+   "bits": 2.59
+  },
+  {
+   "line": 40,
+   "index": 3,
+   "text": "new",
+   "start": 533,
+   "end": 536,
+   "bits": 0.01
+  },
+  {
+   "line": 40,
+   "index": 4,
+   "text": "Vehicle",
+   "start": 537,
+   "end": 544,
+   "bits": 0.002
+  },
+  {
+   "line": 40,
+   "index": 5,
+   "text": "(",
+   "start": 545,
+   "end": 546,
+   "bits": 0.218
+  },
+  {
+   "line": 40,
+   "index": 6,
+   "text": "\"Audi\"",
+   "start": 547,
+   "end": 553,
+   "bits": 5.299
+  },
+  {
+   "line": 40,
+   "index": 7,
+   "text": ",",
+   "start": 554,
+   "end": 555,
+   "bits": 0.025
+  },
+  {
+   "line": 40,
+   "index": 8,
+   "text": "\"A6\"",
+   "start": 556,
+   "end": 560,
+   "bits": 7.538
+  },
+  {
+   "line": 40,
+   "index": 9,
+   "text": ",",
+   "start": 561,
+   "end": 562,
+   "bits": 0.014
+  },
+  {
+   "line": 40,
+   "index": 10,
+   "text": "200",
+   "start": 563,
+   "end": 566,
+   "bits": 3.087
+  },
+  {
+   "line": 40,
+   "index": 11,
+   "text": ")",
+   "start": 567,
+   "end": 568,
+   "bits": 0.241
+  },
+  {
+   "line": 40,
+   "index": 12,
+   "text": ";",
+   "start": 569,
+   "end": 570,
+   "bits": 0.536
+  },
+  {
+   "line": 42,
+   "index": 0,
+   "text": "v.accelerate",
+   "start": 574,
+   "end": 586,
+   "bits": 2.984
+  },
+  {
+   "line": 42,
+   "index": 1,
+   "text": "(",
+   "start": 587,
+   "end": 588,
+   "bits": 0.071
+  },
+  {
+   "line": 42,
+   "index": 2,
+   "text": "10",
+   "start": 589,
+   "end": 591,
+   "bits": 2.0
+  },
+  {
+   "line": 42,
+   "index": 3,
+   "text": ")",
+   "start": 592,
+   "end": 593,
+   "bits": 1.937
+  },
+  {
+   "line": 42,
+   "index": 4,
+   "text": ";",
+   "start": 594,
+   "end": 595,
+   "bits": 0.669
+  },
+  {
+   "line": 44,
+   "index": 0,
+   "text": "}",
+   "start": 598,
+   "end": 599,
+   "bits": 6.682
+  },
+  {
+   "line": 46,
+   "index": 0,
+   "text": "}",
+   "start": 601,
+   "end": 602,
+   "bits": 8.43
+  }
+ ]
+}

@@ -1,0 +1,246 @@
+{
+ "Rectangle.java": [
+  {
+   "line": 1,
+   "construct": "class",
+   "text": "class declaration defines a new class named Rectangle."
+  },
+  {
+   "line": 2,
+   "construct": "field",
+   "text": "field declaration for four integer variables representing rectangle coordinates."
+  },
+  {
+   "line": 3,
+   "construct": "constructor",
+   "text": "constructor initializes a new Rectangle object with specified coordinates."
+  },
+  {
+   "line": 4,
+   "construct": "this_field",
+   "text": "this.x1 refers to the instance variable x1 of the current object."
+  },
+  {
+   "line": 5,
+   "construct": "this_field",
+   "text": "this.y1 refers to the instance variable y1 of the current object."
+  },
+  {
+   "line": 6,
+   "construct": "this_field",
+   "text": "this.x2 refers to the instance variable x2 of the current object."
+  },
+  {
+   "line": 7,
+   "construct": "this_field",
+   "text": "this.y2 refers to the instance variable y2 of the current object."
+  },
+  {
+   "line": 9,
+   "construct": "method_def",
+   "text": "method definition for width, returning the rectangle's width."
+  },
+  {
+   "line": 9,
+   "construct": "this_field",
+   "text": "this.x2 accesses the instance variable x2."
+  },
+  {
+   "line": 9,
+   "construct": "return",
+   "text": "return statement provides the calculated width."
+  },
+  {
+   "line": 9,
+   "construct": "arithmetic",
+   "text": "arithmetic expression calculates width by subtracting x1 from x2."
+  },
+  {
+   "line": 10,
+   "construct": "method_def",
+   "text": "method definition for height, returning the rectangle's height."
+  },
+  {
+   "line": 10,
+   "construct": "this_field",
+   "text": "this.y2 accesses the instance variable y2."
+  },
+  {
+   "line": 10,
+   "construct": "return",
+   "text": "return statement provides the calculated height."
+  },
+  {
+   "line": 10,
+   "construct": "arithmetic",
+   "text": "arithmetic expression calculates height by subtracting y1 from y2."
+  },
+  {
+   "line": 11,
+   "construct": "method_def",
+   "text": "method definition for area, returning the rectangle's area."
+  },
+  {
+   "line": 11,
+   "construct": "this_field",
+   "text": "this.width() calls the width method of the current object."
+  },
+  {
+   "line": 11,
+   "construct": "return",
+   "text": "return statement provides the calculated area."
+  },
+  {
+   "line": 11,
+   "construct": "method_call",
+   "text": "method call to height() retrieves the height of the rectangle."
+  },
+  {
+   "line": 11,
+   "construct": "arithmetic",
+   "text": "arithmetic expression calculates area by multiplying width and height."
+  },
+  {
+   "line": 12,
+   "construct": "main",
+   "text": "static main method serves as the entry point for the program."
+  },
+  {
+   "line": 12,
+   "construct": "array",
+   "text": "array type indicates args is an array of Strings."
+  },
+  {
+   "line": 13,
+   "construct": "new",
+   "text": "object creation with new instantiates a Rectangle object rect1."
+  },
+  {
+   "line": 14,
+   "construct": "print",
+   "text": "printing with System.out.println outputs the area of rect1."
+  },
+  {
+   "line": 15,
+   "construct": "new",
+   "text": "object creation with new instantiates a Rectangle object rect2."
+  },
+  {
+   "line": 16,
+   "construct": "print",
+   "text": "printing with System.out.println outputs the area of rect2."
+  }
+ ],
+ "Vehicle.java": [
+  {
+   "line": 1,
+   "construct": "class",
+   "text": "class declaration defines a blueprint for creating objects."
+  },
+  {
+   "line": 2,
+   "construct": "field",
+   "text": "field declaration defines instance variables for the class."
+  },
+  {
+   "line": 3,
+   "construct": "field",
+   "text": "field declaration defines additional instance variables for the class."
+  },
+  {
+   "line": 4,
+   "construct": "constructor",
+   "text": "constructor initializes new objects with specified parameters."
+  },
+  {
+   "line": 5,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'producer'."
+  },
+  {
+   "line": 6,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'type'."
+  },
+  {
+   "line": 7,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'topSpeed'."
+  },
+  {
+   "line": 8,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'currentSpeed'."
+  },
+  {
+   "line": 10,
+   "construct": "method_def",
+   "text": "method definition declares a function that returns an integer."
+  },
+  {
+   "line": 11,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'currentSpeed'."
+  },
+  {
+   "line": 11,
+   "construct": "conditional",
+   "text": "if / else structure controls flow based on a condition."
+  },
+  {
+   "line": 11,
+   "construct": "arithmetic",
+   "text": "arithmetic expression calculates the sum of currentSpeed and kmh."
+  },
+  {
+   "line": 12,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'currentSpeed'."
+  },
+  {
+   "line": 13,
+   "construct": "conditional",
+   "text": "else branch executes if the if condition is false."
+  },
+  {
+   "line": 14,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'currentSpeed'."
+  },
+  {
+   "line": 14,
+   "construct": "arithmetic",
+   "text": "arithmetic expression updates currentSpeed by adding kmh."
+  },
+  {
+   "line": 16,
+   "construct": "this_field",
+   "text": "this.field accesses the instance variable 'currentSpeed'."
+  },
+  {
+   "line": 16,
+   "construct": "return",
+   "text": "return statement sends back the currentSpeed value."
+  },
+  {
+   "line": 18,
+   "construct": "main",
+   "text": "static main method serves as the entry point for execution."
+  },
+  {
+   "line": 18,
+   "construct": "array",
+   "text": "array type defines a parameter that can hold multiple strings."
+  },
+  {
+   "line": 19,
+   "construct": "new",
+   "text": "object creation with new allocates memory for a Vehicle instance."
+  },
+  {
+   "line": 20,
+   "construct": "method_call",
+   "text": "method call invokes the accelerate method on the Vehicle object."
+  }
+ ]
+}

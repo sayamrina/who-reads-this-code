@@ -1,0 +1,11 @@
+{
+ "participants_java": 207,
+ "trials_kept": 351,
+ "participants_kept": 185,
+ "dropped": {
+  "tracking loss": 21,
+  "too few fixations": 33,
+  "gaze mostly off the code": 9
+ },
+ "token_rows": 44912
+}
