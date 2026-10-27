@@ -2,7 +2,7 @@
 
 **Interpretable models of how programmers read code, and AI explanations that adapt to them faithfully**
 
-[Project page](https://sayamrina.github.io/who-reads-this-code/) · [Live demo](https://who-reads-this-code.streamlit.app/) · [Preregistration](PREREGISTRATION.md) · [Portfolio](https://sayamrina.github.io/)
+[Project page](https://sayamrina.github.io/who-reads-this-code/) · [Live demo](https://who-read-thiscode.streamlit.app/) · [Preregistration](PREREGISTRATION.md) · [Portfolio](https://sayamrina.github.io/)
 
 AI coding assistants explain code in the same way to everyone, although programmers differ a great deal in how they read it. This project asks two questions with public eye-tracking data and a small generation experiment:
 
@@ -66,7 +66,7 @@ All notes cite their line; 100 % of the prompt-only notes referred to an existin
 
 ## Demo
 
-The [Streamlit app](https://who-reads-this-code.streamlit.app/) replays eight real EMIP sessions on the code image. A line is flagged when the reader dwells on it at least twice as long as on their median line or returns to it unusually often; for flagged lines, the assistant shows the notes the RSA-style speaker selects for the profile ticked in the sidebar, and says why the line was flagged. The demo makes no model calls.
+The [Streamlit app](https://who-read-thiscode.streamlit.app/) replays eight real EMIP sessions on the code image. A line is flagged when the reader dwells on it at least twice as long as on their median line or returns to it unusually often; for flagged lines, the assistant shows the notes the RSA-style speaker selects for the profile ticked in the sidebar, and says why the line was flagged. The demo makes no model calls.
 
 ## Limitations
 
