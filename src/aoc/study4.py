@@ -1,7 +1,7 @@
 """Study 4: single-trial FRPs and first-pass dwell time against AOI surprisal, and their dependence on programming experience.
 
 Linear mixed-effects models with crossed random intercepts for participants and snippet pairs, as planned in the
-preregistration addendum.
+study plan addendum.
 """
 import json
 import warnings

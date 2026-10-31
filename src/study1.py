@@ -1,7 +1,7 @@
 """Study 1: does code-LLM surprisal predict reading times on code tokens, and does expertise change the effect?
 
 Linear mixed-effects models on log reading times with crossed random intercepts for participants and token items, as
-planned in PREREGISTRATION.md. A by-item regression on token means is reported as a check. Skipping is modelled with a logistic
+planned in STUDY_PLAN.md. A by-item regression on token means is reported as a check. Skipping is modelled with a logistic
 regression with participant-clustered standard errors.
 """
 import json

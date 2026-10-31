@@ -194,7 +194,7 @@ with right:
 with st.expander("What the studies found"):
     st.markdown("""
 **Data.** EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020): 216 programmers reading two Java programs.
-This analysis keeps 351 trials from 185 Java readers after preregistered exclusions.
+This analysis keeps 351 trials from 185 Java readers after planned exclusions.
 
 **Study 1.** Tokens that a code language model finds less predictable (higher surprisal) are read longer: about 5 ms per bit
 of total reading time (p = .004), after controlling for length, position and frequency; the effect is not robust in by-token
@@ -229,5 +229,5 @@ not requested in a prompt.
 dwell, or when they came back to it at least twice as often as to their median line
 (and at least three times). This is a simple, readable rule, not a validated detector.
 
-Full report, code and preregistration: [github.com/sayamrina/who-reads-this-code](https://github.com/sayamrina/who-reads-this-code)
+Full report, code and study plan: [github.com/sayamrina/who-reads-this-code](https://github.com/sayamrina/who-reads-this-code)
 """)

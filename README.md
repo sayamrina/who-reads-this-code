@@ -2,20 +2,20 @@
 
 **Interpretable models of how programmers read code, and AI explanations that adapt to them faithfully**
 
-[Project page](https://sayamrina.github.io/who-reads-this-code/) · [Live demo](https://who-read-thiscode.streamlit.app/) · [Preregistration](PREREGISTRATION.md) · [Portfolio](https://sayamrina.github.io/)
+[Project page](https://sayamrina.github.io/who-reads-this-code/) · [Live demo](https://who-read-thiscode.streamlit.app/) · [Study plan](STUDY_PLAN.md) · [Portfolio](https://sayamrina.github.io/)
 
 AI coding assistants explain code in the same way to everyone, although programmers differ a great deal in how they read it. This project asks two questions with public eye-tracking data and a small generation experiment:
 
 1. Can signals that are known to shape text reading, such as how predictable a word is, also explain how long programmers look at parts of code, and do readers fall into interpretable types?
 2. If an assistant adapts its explanations to a developer profile, does the adaptation stay where it should, or does it leak into unrelated parts of the explanation?
 
-The hypotheses and analysis plan were written down in [PREREGISTRATION.md](PREREGISTRATION.md) before the gaze data were loaded; every deviation is listed there.
+The hypotheses and analysis plan were written down in [STUDY_PLAN.md](STUDY_PLAN.md) before the gaze data were loaded; every deviation is listed there.
 
 ## Data
 
 EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020; CC-BY 4.0): 216 programmers read two short programs (*Rectangle*, *Vehicle*) while an SMI RED250 tracker recorded their gaze at 250 Hz, and answered a comprehension question about each. The dataset ships token-level areas of interest that align one-to-one with the whitespace-separated tokens of the source files (Al Madi et al., 2021), so gaze can be mapped to code without guessing positions.
 
-**Analysed sample.** 207 participants read Java. After the preregistered exclusions (tracking loss above 30 %, gaze mostly off the code) and one added rule (fewer than 30 fixations), **351 trials from 185 participants** remain, giving 44,912 token observations.
+**Analysed sample.** 207 participants read Java. After the planned exclusions (tracking loss above 30 %, gaze mostly off the code) and one added rule (fewer than 30 fixations), **351 trials from 185 participants** remain, giving 44,912 token observations.
 
 **Pipeline** (`src/`): samples are averaged over the valid eyes, fixations are detected with a dispersion threshold (I-DT, 25 px, 80–1,200 ms; Salvucci and Goldberg, 2000), and each fixation is assigned to the token box it falls in (10 px tolerance). Per token we compute total reading time, first-pass gaze duration and skipping, as in text-reading research.
 
@@ -23,13 +23,13 @@ EMIP, the Eye Movements in Programming dataset (Bednarik et al., 2020; CC-BY 4.0
 
 ## Study 1: predictability shapes how long code is read
 
-Token surprisal, −log₂ p(token | preceding code), comes from Qwen2.5-Coder-0.5B and is summed over the sub-word pieces of each code token. Linear mixed-effects models on log reading time include crossed random intercepts for participants and token items, and control for token length, line, position in the line and token frequency. (A first version nested items within participants; the correction is logged in the preregistration.)
+Token surprisal, −log₂ p(token | preceding code), comes from Qwen2.5-Coder-0.5B and is summed over the sub-word pieces of each code token. Linear mixed-effects models on log reading time include crossed random intercepts for participants and token items, and control for token length, line, position in the line and token frequency. (A first version nested items within participants; the correction is logged in the study plan.)
 
 ![Total reading time by surprisal quintile and expertise](docs/img/study1_surprisal.png)
 
 | Hypothesis | Result |
 |---|---|
-| **H1** Higher surprisal, longer reading | **Supported in the preregistered model for total reading time**: +4.7 ms per bit at the mean (b = 0.040 on log time per SD, SE = 0.014, p = .004, 19,186 observations, crossed random intercepts for readers and tokens). First-pass gaze: same direction, not significant (b = 0.012, p = .12). **Not robust in the checks**: a by-item regression on token means points the same way but is not significant (p = .16), and neither program alone reaches significance (Rectangle p = .07, Vehicle p = .10). |
+| **H1** Higher surprisal, longer reading | **Supported in the planned model for total reading time**: +4.7 ms per bit at the mean (b = 0.040 on log time per SD, SE = 0.014, p = .004, 19,186 observations, crossed random intercepts for readers and tokens). First-pass gaze: same direction, not significant (b = 0.012, p = .12). **Not robust in the checks**: a by-item regression on token means points the same way but is not significant (p = .16), and neither program alone reaches significance (Rectangle p = .07, Vehicle p = .10). |
 | **H2** The effect differs by expertise | **Not supported**: no surprisal × expertise interaction (total time b = −0.006, p = .37). |
 | **H3** Predictable tokens are skipped more | **Not supported**: b = 0.026, p = .11. |
 
@@ -68,7 +68,7 @@ All notes cite their line; 100 % of the prompt-only notes referred to an existin
 
 ## Part B: open questions from the Saarland EEG studies
 
-Two recent studies from Saarland University measured programmers' brain responses to confusing code. Bergum et al. (2026) recorded EEG and eye tracking while 24 programmers read 72 pairs of Java snippets with and without an *atom of confusion*, and found a late frontal positivity about 400–700 ms after the first fixation on the confusing part. Abdelsalam et al. (2025) showed that the perplexity of code language models peaks where this response is large. Both papers list open questions: individual differences were not analysed, eye-tracking measures were not tested inferentially, only one EEG component was examined, the effect of model size is unknown, and detection and assistance were proposed but not built. Their data and code are public (Zenodo 10.5281/zenodo.14229848; github.com/brains-on-code), so Studies 3–6 address these questions directly. The hypotheses were added to the [preregistration](PREREGISTRATION.md) before these analyses were run.
+Two recent studies from Saarland University measured programmers' brain responses to confusing code. Bergum et al. (2026) recorded EEG and eye tracking while 24 programmers read 72 pairs of Java snippets with and without an *atom of confusion*, and found a late frontal positivity about 400–700 ms after the first fixation on the confusing part. Abdelsalam et al. (2025) showed that the perplexity of code language models peaks where this response is large. Both papers list open questions: individual differences were not analysed, eye-tracking measures were not tested inferentially, only one EEG component was examined, the effect of model size is unknown, and detection and assistance were proposed but not built. Their data and code are public (Zenodo 10.5281/zenodo.14229848; github.com/brains-on-code), so Studies 3–6 address these questions directly. The hypotheses were added to the [study plan](STUDY_PLAN.md) before these analyses were run.
 
 | Open question in Bergum et al. (2026) and Abdelsalam et al. (2026) | Where it is tested here | Answer |
 |---|---|---|
